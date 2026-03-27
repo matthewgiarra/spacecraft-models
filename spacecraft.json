@@ -125,21 +125,124 @@
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_grace/grace.gltf"
             },
             {
+                "Name": "grace-fo1",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_grace_fo/graceFO.gltf"
+            },
+            {
+                "Name": "grail",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_grail/grail_b.gltf"
+            },
+            {
+                "Name": "grifex",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_grifex/grifex.gltf"
+            },
+            {
                 "Name": "hubble",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_hubble/Hubble.gltf"
-            },                                                                                                                                                                                                    
+            },  
+            {
+                "Name": "huygens",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_huygens/Huygens.gltf"
+            },
+            {
+                "Name": "ibex",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ibex/iBEX.gltf"
+            },
+            {
+                "Name": "icesat-2",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_icesatii/ICESat2.gltf"
+            },
+            {
+                "Name": "image",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_image/image.gltf"
+            },
+            {
+                "Name": "imap",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_imap/imap.gltf"
+            },
+            {
+                "Name": "insight",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_insight/lander/insight.gltf"
+            },
             {
                 "Name": "iss",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_iss/ISS_stationary.gltf"
-            },                                    
+            }, 
+            {
+                "Name": "ipex",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ipex/IPEX.gltf"
+            },
+            {
+                "Name": "isas",
+                "GLTF" : ""
+            },
+            {
+                "Name": "ixpe",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ixpe/ixpe.gltf"
+            },                                                                                                                                                                                                                                                               
             {
                 "Name": "jwst",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_jwst/webb_deployed.gltf"
             },
             {
-                "Name": "",
-                "GLTF" : ""
+                "Name": "jason",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ostm/ostm.gltf"
+            },
+            {
+                "Name": "juice",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_juice/juice.gltf"
+            },
+            {
+                "Name": "juno",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_juno/Juno.gltf"
+            },
+            {
+                "Name": "kepler",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_kepler/Kepler.gltf"
+            },
+            {
+                "Name": "ladee",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ladee/ladee.gltf"
+            },
+            {
+                "Name": "landsat-7",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_landsat_7/LandSat7.gltf"
+            },
+            {
+                "Name": "landsat-8",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_landsat_8/LandSat8.gltf"
+            },
+            {
+                "Name": "landsat-9",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_landsat_9/Landsat9.gltf"
+            },
+            {
+                "Name": "lcross",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lcross/lcross.gltf"
+            },
+            {
+                "Name": "lucy",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lucy/lucy.gltf"
+            },
+            {
+                "Name": "lunar-flashlight",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lunar_flashlight/lunar_flashlight.gltf"
+            },
+            {
+                "Name": "lunar-prospector",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lunar_prospector/lunar_prospector.gltf"
+            },
+            {
+                "Name": "lunar-reconnaissance-orbiter",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lunar_reconnaissance_orbiter/LRO.gltf"
+            },
+            {
+                "Name": "magellan",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_magellan/magellan.gltf"
+            },
+            {
+                "Name": "marco",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_marco/model.gltf"
             }
-
         ]
 }
