@@ -81,7 +81,7 @@ def main():
                     download_file(file_url, file_path)
         except:
             print("Problem with %s" % gltf_path)
-            with open("errors.txt", "w+") as fid:
+            with open("errors.log", "w+") as fid:
                 print("%s" % gltf_path, file = fid)
 
     print("\n✅ Done!")
