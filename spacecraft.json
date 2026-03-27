@@ -1,0 +1,145 @@
+{
+    "Spacecraft": [
+            {
+                "Name" : "ace",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ace/ace.gltf"
+            },
+            {
+                "Name": "acrimsat",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_acrimsat/acrimsat.gltf"
+            },
+            {
+                "Name": "acs3",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_acs3/acs3.gltf"
+            },
+            {
+                "Name": "aqua",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_aqua/Aqua.gltf"
+            },
+            {
+                "Name": "aquarius",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_sac_d/aquarius.gltf"
+            },
+            {
+                "Name": "artemis-1",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_artemis/artemis_ii.gltf"
+            },
+            {
+                "Name": "aura",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_aura/Aura.gltf"
+            },
+            {
+                "Name": "biosentinel",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_biosentinel/biosentinel.gltf"
+            },
+            {
+                "Name": "calipso",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_calipso/calipso.gltf"
+            },
+            {
+                "Name": "capstone",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_capstone/capstone.gltf"
+            },     
+            {
+                "Name": "cassini",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_cassini/Cassini.gltf"
+            }, 
+            {
+                "Name": "chandra",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_chandra/chandra.gltf"
+            },  
+            {
+                "Name": "clementine",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_clementine/clementine_isas.gltf"
+            },
+            {
+                "Name": "cloudsat",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_cloudsat/CloudSat.gltf"
+            },
+            {
+                "Name": "cygnss",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_cygnss/CYGNSS.gltf"
+            },
+            {
+                "Name": "danuri",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_danuri/danuri.gltf"
+            },
+            {
+                "Name": "dart",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_dart/dart.gltf"
+            },
+            {
+                "Name": "dawn",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_dawn/model.gltf"
+            },
+            {
+                "Name": "deep-impact",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_deep_impact/deep_impact_wo_impactor.gltf"
+            },  
+            {
+                "Name": "deep-space-1",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_deep_space_1/deep_space_1.gltf"
+            },
+            {
+                "Name": "dscovr",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_dscovr/dscovr.gltf"
+            },     
+            {
+                "Name": "eo-1",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_eo_1/eo-1.gltf"
+            },     
+            {
+                "Name": "escapade",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_escapade/escapade.gltf"
+            },     
+            {
+                "Name": "euclid",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_euclid/euclid.gltf"
+            }, 
+            {
+                "Name": "europa-clipper",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_europa_clipper/europa_clipper.gltf"
+            },  
+            {
+                "Name": "explorer-1",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_explorer_1_v2/explorer_1.gltf"
+            },  
+            {
+                "Name": "galileo",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_galileo/galileo.gltf"
+            }, 
+            {
+                "Name": "galileo-probe",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_galileo_probe/galileo_probe.gltf"
+            },
+            {
+                "Name": "geotail",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_geotail/geotail.gltf"
+            },
+            {
+                "Name": "gpm",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_gpm/GPM.gltf"
+            },
+            {
+                "Name": "grace",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_grace/grace.gltf"
+            },
+            {
+                "Name": "hubble",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_hubble/Hubble.gltf"
+            },                                                                                                                                                                                                    
+            {
+                "Name": "iss",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_iss/ISS_stationary.gltf"
+            },                                    
+            {
+                "Name": "jwst",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_jwst/webb_deployed.gltf"
+            },
+            {
+                "Name": "",
+                "GLTF" : ""
+            }
+
+        ]
+}
