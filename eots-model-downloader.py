@@ -21,12 +21,15 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-n', '--names', nargs = '+', type=str, default = [], help='Spacecraft name corresponding to the Name field in the config file (e.g. in spacecraft.json)')
     parser.add_argument('-d', '--outdir', type=str, default="models", help="Path to output directory (in which model folders will be saved). Default: models")
+    parser.add_argument('-i', '--input-file', type=str, default="spacecraft.json", help="Name of the json-formatted file containing names and URLs of spacecraft models content to download")
     args = parser.parse_args()
     names_list = args.names
     outdir = args.outdir
+    input_file = args.input_file
 
     # Read the JSON configuration
-    with open("spacecraft.json") as f:
+    print("Reading %s..." % input_file)
+    with open(input_file) as f:
         data = json.load(f)
 
     # List of spacecraft names
@@ -44,6 +47,15 @@ def main():
     for spacecraft in spacecraft_list:
         spacecraft_name = spacecraft["Name"]
         gltf_url = spacecraft["GLTF"]
+
+        # Skip empty items
+        if not gltf_url:
+            if spacecraft_name:
+                print("Skipping %s (empty URL)" % spacecraft_name)
+                continue
+            else:
+                continue # Nothing to print because it's just an empty item
+    
         print(f"\n🚀 Processing: {spacecraft_name}")
 
         # Create satellite folder
