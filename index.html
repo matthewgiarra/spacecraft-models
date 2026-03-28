@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA Spacecraft 3D Models</title>
+  <style>
+    body { 
+      font-family: 'Inter', system-ui, sans-serif; 
+      margin: 0; padding: 0; 
+      background: #0a0a0a; color: #fff;
+    }
+    .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    h1 { color: #0b3d91; }
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: 1px solid #333;
+      border-radius: 12px;
+      background: #111;
+    }
+    .description {
+      background: #111; padding: 25px; border-radius: 10px; margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>NASA Spacecraft 3D Collection</h1>
+    
+    <div class="description">
+      <p>Interactive 3D viewer for high-quality NASA spacecraft models.</p>
+      <p>Drag to rotate • Scroll to zoom • Use the sidebar to switch models.</p>
+    </div>
+
+    <h2>Interactive 3D Viewer</h2>
+    <iframe src="viewer/" 
+            title="NASA Spacecraft 3D Viewer"
+            allowfullscreen>
+    </iframe>
+
+    <p style="margin-top: 30px;">
+      <strong>Tip:</strong> The viewer works best in a modern browser. 
+      You can also visit the <a href="viewer/" target="_blank">full-screen viewer</a>.
+    </p>
+  </div>
+</body>
+</html>

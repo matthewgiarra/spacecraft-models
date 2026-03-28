@@ -1,0 +1,735 @@
+{
+  "models": [
+    {
+      "name": "ace",
+      "folder": "ace",
+      "filename": "ace.gltf"
+    }
+    ,
+    {
+      "name": "acrimsat",
+      "folder": "acrimsat",
+      "filename": "acrimsat.gltf"
+    }
+    ,
+    {
+      "name": "acs3",
+      "folder": "acs3",
+      "filename": "acs3.gltf"
+    }
+    ,
+    {
+      "name": "aqua",
+      "folder": "aqua",
+      "filename": "Aqua.gltf"
+    }
+    ,
+    {
+      "name": "aquarius",
+      "folder": "aquarius",
+      "filename": "aquarius.gltf"
+    }
+    ,
+    {
+      "name": "artemis-1",
+      "folder": "artemis-1",
+      "filename": "artemis_ii.gltf"
+    }
+    ,
+    {
+      "name": "aura",
+      "folder": "aura",
+      "filename": "Aura.gltf"
+    }
+    ,
+    {
+      "name": "biosentinel",
+      "folder": "biosentinel",
+      "filename": "biosentinel.gltf"
+    }
+    ,
+    {
+      "name": "calipso",
+      "folder": "calipso",
+      "filename": "calipso.gltf"
+    }
+    ,
+    {
+      "name": "capstone",
+      "folder": "capstone",
+      "filename": "capstone.gltf"
+    }
+    ,
+    {
+      "name": "cassini",
+      "folder": "cassini",
+      "filename": "Cassini.gltf"
+    }
+    ,
+    {
+      "name": "chandra",
+      "folder": "chandra",
+      "filename": "chandra.gltf"
+    }
+    ,
+    {
+      "name": "clementine",
+      "folder": "clementine",
+      "filename": "clementine_isas.gltf"
+    }
+    ,
+    {
+      "name": "cloudsat",
+      "folder": "cloudsat",
+      "filename": "CloudSat.gltf"
+    }
+    ,
+    {
+      "name": "cygnss",
+      "folder": "cygnss",
+      "filename": "CYGNSS.gltf"
+    }
+    ,
+    {
+      "name": "danuri",
+      "folder": "danuri",
+      "filename": "danuri.gltf"
+    }
+    ,
+    {
+      "name": "dart",
+      "folder": "dart",
+      "filename": "dart.gltf"
+    }
+    ,
+    {
+      "name": "dawn",
+      "folder": "dawn",
+      "filename": "model.gltf"
+    }
+    ,
+    {
+      "name": "deep-impact",
+      "folder": "deep-impact",
+      "filename": "deep_impact_wo_impactor.gltf"
+    }
+    ,
+    {
+      "name": "deep-space-1",
+      "folder": "deep-space-1",
+      "filename": "deep_space_1.gltf"
+    }
+    ,
+    {
+      "name": "dscovr",
+      "folder": "dscovr",
+      "filename": "dscovr.gltf"
+    }
+    ,
+    {
+      "name": "eo-1",
+      "folder": "eo-1",
+      "filename": "eo-1.gltf"
+    }
+    ,
+    {
+      "name": "escapade",
+      "folder": "escapade",
+      "filename": "escapade.gltf"
+    }
+    ,
+    {
+      "name": "euclid",
+      "folder": "euclid",
+      "filename": "euclid.gltf"
+    }
+    ,
+    {
+      "name": "europa-clipper",
+      "folder": "europa-clipper",
+      "filename": "europa_clipper.gltf"
+    }
+    ,
+    {
+      "name": "explorer-1",
+      "folder": "explorer-1",
+      "filename": "explorer_1.gltf"
+    }
+    ,
+    {
+      "name": "galileo",
+      "folder": "galileo",
+      "filename": "galileo.gltf"
+    }
+    ,
+    {
+      "name": "galileo-probe",
+      "folder": "galileo-probe",
+      "filename": "galileo_probe.gltf"
+    }
+    ,
+    {
+      "name": "geotail",
+      "folder": "geotail",
+      "filename": "geotail.gltf"
+    }
+    ,
+    {
+      "name": "gpm",
+      "folder": "gpm",
+      "filename": "GPM.gltf"
+    }
+    ,
+    {
+      "name": "grace",
+      "folder": "grace",
+      "filename": "grace.gltf"
+    }
+    ,
+    {
+      "name": "grace-fo1",
+      "folder": "grace-fo1",
+      "filename": "graceFO.gltf"
+    }
+    ,
+    {
+      "name": "grail",
+      "folder": "grail",
+      "filename": "grail_b.gltf"
+    }
+    ,
+    {
+      "name": "grifex",
+      "folder": "grifex",
+      "filename": "grifex.gltf"
+    }
+    ,
+    {
+      "name": "hubble",
+      "folder": "hubble",
+      "filename": "Hubble.gltf"
+    }
+    ,
+    {
+      "name": "huygens",
+      "folder": "huygens",
+      "filename": "Huygens.gltf"
+    }
+    ,
+    {
+      "name": "ibex",
+      "folder": "ibex",
+      "filename": "iBEX.gltf"
+    }
+    ,
+    {
+      "name": "icesat-2",
+      "folder": "icesat-2",
+      "filename": "ICESat2.gltf"
+    }
+    ,
+    {
+      "name": "image",
+      "folder": "image",
+      "filename": "image.gltf"
+    }
+    ,
+    {
+      "name": "imap",
+      "folder": "imap",
+      "filename": "imap.gltf"
+    }
+    ,
+    {
+      "name": "insight",
+      "folder": "insight",
+      "filename": "insight.gltf"
+    }
+    ,
+    {
+      "name": "iss",
+      "folder": "iss",
+      "filename": "ISS_stationary.gltf"
+    }
+    ,
+    {
+      "name": "ipex",
+      "folder": "ipex",
+      "filename": "IPEX.gltf"
+    }
+    ,
+    {
+      "name": "ixpe",
+      "folder": "ixpe",
+      "filename": "ixpe.gltf"
+    }
+    ,
+    {
+      "name": "jwst",
+      "folder": "jwst",
+      "filename": "webb_deployed.gltf"
+    }
+    ,
+    {
+      "name": "jason",
+      "folder": "jason",
+      "filename": "ostm.gltf"
+    }
+    ,
+    {
+      "name": "juice",
+      "folder": "juice",
+      "filename": "juice.gltf"
+    }
+    ,
+    {
+      "name": "juno",
+      "folder": "juno",
+      "filename": "Juno.gltf"
+    }
+    ,
+    {
+      "name": "kepler",
+      "folder": "kepler",
+      "filename": "Kepler.gltf"
+    }
+    ,
+    {
+      "name": "ladee",
+      "folder": "ladee",
+      "filename": "ladee.gltf"
+    }
+    ,
+    {
+      "name": "landsat-7",
+      "folder": "landsat-7",
+      "filename": "LandSat7.gltf"
+    }
+    ,
+    {
+      "name": "landsat-8",
+      "folder": "landsat-8",
+      "filename": "LandSat8.gltf"
+    }
+    ,
+    {
+      "name": "landsat-9",
+      "folder": "landsat-9",
+      "filename": "Landsat9.gltf"
+    }
+    ,
+    {
+      "name": "lcross",
+      "folder": "lcross",
+      "filename": "lcross.gltf"
+    }
+    ,
+    {
+      "name": "lucy",
+      "folder": "lucy",
+      "filename": "lucy.gltf"
+    }
+    ,
+    {
+      "name": "lunar-flashlight",
+      "folder": "lunar-flashlight",
+      "filename": "lunar_flashlight.gltf"
+    }
+    ,
+    {
+      "name": "lunar-prospector",
+      "folder": "lunar-prospector",
+      "filename": "lunar_prospector.gltf"
+    }
+    ,
+    {
+      "name": "lunar-reconnaissance-orbiter",
+      "folder": "lunar-reconnaissance-orbiter",
+      "filename": "LRO.gltf"
+    }
+    ,
+    {
+      "name": "magellan",
+      "folder": "magellan",
+      "filename": "magellan.gltf"
+    }
+    ,
+    {
+      "name": "marco",
+      "folder": "marco",
+      "filename": "model.gltf"
+    }
+    ,
+    {
+      "name": "mariner-2",
+      "folder": "mariner-2",
+      "filename": "mariner2.gltf"
+    }
+    ,
+    {
+      "name": "perseverence",
+      "folder": "perseverence",
+      "filename": "perseverance.gltf"
+    }
+    ,
+    {
+      "name": "mars-express",
+      "folder": "mars-express",
+      "filename": "mars_express.gltf"
+    }
+    ,
+    {
+      "name": "mars-global-surveyor",
+      "folder": "mars-global-surveyor",
+      "filename": "mars_global_surveyor.gltf"
+    }
+    ,
+    {
+      "name": "mars-odyssey",
+      "folder": "mars-odyssey",
+      "filename": "mars_odyssey.gltf"
+    }
+    ,
+    {
+      "name": "mars-reconnaissance-orbiter",
+      "folder": "mars-reconnaissance-orbiter",
+      "filename": "MRO.gltf"
+    }
+    ,
+    {
+      "name": "curiosity",
+      "folder": "curiosity",
+      "filename": "curiosity_static.gltf"
+    }
+    ,
+    {
+      "name": "maven",
+      "folder": "maven",
+      "filename": "Maven.gltf"
+    }
+    ,
+    {
+      "name": "mcubed-2",
+      "folder": "mcubed-2",
+      "filename": "M-Cubed2.gltf"
+    }
+    ,
+    {
+      "name": "messenger",
+      "folder": "messenger",
+      "filename": "Messenger.gltf"
+    }
+    ,
+    {
+      "name": "mms",
+      "folder": "mms",
+      "filename": "MMS.gltf"
+    }
+    ,
+    {
+      "name": "near-shoemaker",
+      "folder": "near-shoemaker",
+      "filename": "near.gltf"
+    }
+    ,
+    {
+      "name": "neo-surveyor",
+      "folder": "neo-surveyor",
+      "filename": "neosurveyor.gltf"
+    }
+    ,
+    {
+      "name": "new-horizons",
+      "folder": "new-horizons",
+      "filename": "new_horizons.gltf"
+    }
+    ,
+    {
+      "name": "nisar",
+      "folder": "nisar",
+      "filename": "Nisar.gltf"
+    }
+    ,
+    {
+      "name": "nustar",
+      "folder": "nustar",
+      "filename": "nustar.gltf"
+    }
+    ,
+    {
+      "name": "oco-2",
+      "folder": "oco-2",
+      "filename": "oco2.gltf"
+    }
+    ,
+    {
+      "name": "opportunity-cruise",
+      "folder": "opportunity-cruise",
+      "filename": "mpf_mera_merb_cruise.gltf"
+    }
+    ,
+    {
+      "name": "opportunity-rover",
+      "folder": "opportunity-rover",
+      "filename": "mer_static.gltf"
+    }
+    ,
+    {
+      "name": "osiris-apex",
+      "folder": "osiris-apex",
+      "filename": "osiris_rex_articulated_panels.gltf"
+    }
+    ,
+    {
+      "name": "osiris-rex-sample-return-capsule",
+      "folder": "osiris-rex-sample-return-capsule",
+      "filename": "osiris_rex_heatshield.gltf"
+    }
+    ,
+    {
+      "name": "pace",
+      "folder": "pace",
+      "filename": "pace.gltf"
+    }
+    ,
+    {
+      "name": "parker-solar-probe",
+      "folder": "parker-solar-probe",
+      "filename": "PSP.gltf"
+    }
+    ,
+    {
+      "name": "philae",
+      "folder": "philae",
+      "filename": "philae.gltf"
+    }
+    ,
+    {
+      "name": "phoenix-cruise",
+      "folder": "phoenix-cruise",
+      "filename": "phoenix_cruise.gltf"
+    }
+    ,
+    {
+      "name": "phoenix-edl",
+      "folder": "phoenix-edl",
+      "filename": "phoenix_edl.gltf"
+    }
+    ,
+    {
+      "name": "pioneer",
+      "folder": "pioneer",
+      "filename": "pioneer.gltf"
+    }
+    ,
+    {
+      "name": "polar",
+      "folder": "polar",
+      "filename": "polar.gltf"
+    }
+    ,
+    {
+      "name": "prefire",
+      "folder": "prefire",
+      "filename": "prefire.gltf"
+    }
+    ,
+    {
+      "name": "psyche",
+      "folder": "psyche",
+      "filename": "psyche.gltf"
+    }
+    ,
+    {
+      "name": "qikscat",
+      "folder": "qikscat",
+      "filename": "QuikSCAT.gltf"
+    }
+    ,
+    {
+      "name": "raincube",
+      "folder": "raincube",
+      "filename": "Raincube.gltf"
+    }
+    ,
+    {
+      "name": "rosetta",
+      "folder": "rosetta",
+      "filename": "rosettaPhilae.gltf"
+    }
+    ,
+    {
+      "name": "cluster-ii",
+      "folder": "cluster-ii",
+      "filename": "cluster_ii.gltf"
+    }
+    ,
+    {
+      "name": "sentinel-6",
+      "folder": "sentinel-6",
+      "filename": "Sentinel6.gltf"
+    }
+    ,
+    {
+      "name": "smap",
+      "folder": "smap",
+      "filename": "SMAP.gltf"
+    }
+    ,
+    {
+      "name": "soho",
+      "folder": "soho",
+      "filename": "soho.gltf"
+    }
+    ,
+    {
+      "name": "solar-dynamics-observatory",
+      "folder": "solar-dynamics-observatory",
+      "filename": "sdo.gltf"
+    }
+    ,
+    {
+      "name": "sorce",
+      "folder": "sorce",
+      "filename": "sorce.gltf"
+    }
+    ,
+    {
+      "name": "spherex",
+      "folder": "spherex",
+      "filename": "spherex.gltf"
+    }
+    ,
+    {
+      "name": "spirit-cruise",
+      "folder": "spirit-cruise",
+      "filename": "mpf_mera_merb_cruise.gltf"
+    }
+    ,
+    {
+      "name": "spirit-rover",
+      "folder": "spirit-rover",
+      "filename": "mer_static.gltf"
+    }
+    ,
+    {
+      "name": "spitzer-space-telescope",
+      "folder": "spitzer-space-telescope",
+      "filename": "SPITZER.gltf"
+    }
+    ,
+    {
+      "name": "stardust",
+      "folder": "stardust",
+      "filename": "stardust_articulated.gltf"
+    }
+    ,
+    {
+      "name": "stardust-sapmle-return-capsule",
+      "folder": "stardust-sapmle-return-capsule",
+      "filename": "stardust_capsule.gltf"
+    }
+    ,
+    {
+      "name": "starling",
+      "folder": "starling",
+      "filename": "starling.gltf"
+    }
+    ,
+    {
+      "name": "stereo-ahead",
+      "folder": "stereo-ahead",
+      "filename": "stereo_a.gltf"
+    }
+    ,
+    {
+      "name": "stereo-behind",
+      "folder": "stereo-behind",
+      "filename": "stereo_b.gltf"
+    }
+    ,
+    {
+      "name": "suomi-npp",
+      "folder": "suomi-npp",
+      "filename": "NPP.gltf"
+    }
+    ,
+    {
+      "name": "swot",
+      "folder": "swot",
+      "filename": "swot.gltf"
+    }
+    ,
+    {
+      "name": "TDRS",
+      "folder": "TDRS",
+      "filename": "tdrs.gltf"
+    }
+    ,
+    {
+      "name": "tempo",
+      "folder": "tempo",
+      "filename": "tempo.gltf"
+    }
+    ,
+    {
+      "name": "terra",
+      "folder": "terra",
+      "filename": "Terra.gltf"
+    }
+    ,
+    {
+      "name": "tess",
+      "folder": "tess",
+      "filename": "TESS.gltf"
+    }
+    ,
+    {
+      "name": "themis",
+      "folder": "themis",
+      "filename": "themis.gltf"
+    }
+    ,
+    {
+      "name": "trace-gas-orbiter",
+      "folder": "trace-gas-orbiter",
+      "filename": "TGO.gltf"
+    }
+    ,
+    {
+      "name": "trmm",
+      "folder": "trmm",
+      "filename": "TRMM.gltf"
+    }
+    ,
+    {
+      "name": "tropics",
+      "folder": "tropics",
+      "filename": "tropics.gltf"
+    }
+    ,
+    {
+      "name": "ulysses",
+      "folder": "ulysses",
+      "filename": "ulysses.gltf"
+    }
+    ,
+    {
+      "name": "van-allen-probe",
+      "folder": "van-allen-probe",
+      "filename": "rbsp.gltf"
+    }
+    ,
+    {
+      "name": "voyager",
+      "folder": "voyager",
+      "filename": "Voyager.gltf"
+    }
+    ,
+    {
+      "name": "wind",
+      "folder": "wind",
+      "filename": "wind.gltf"
+    }
+  ]
+}
