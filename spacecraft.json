@@ -173,13 +173,9 @@
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ipex/IPEX.gltf"
             },
             {
-                "Name": "isas",
-                "GLTF" : ""
-            },
-            {
                 "Name": "ixpe",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ixpe/ixpe.gltf"
-            },                                                                                                                                                                                                                                                               
+            },                                                              
             {
                 "Name": "jwst",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_jwst/webb_deployed.gltf"
@@ -243,6 +239,255 @@
             {
                 "Name": "marco",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_marco/model.gltf"
+            },
+            {
+                "Name": "mariner-2",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mariner_2/mariner2.gltf"
+            },
+            {
+                "Name": "perseverence",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_2020/rover/perseverance.gltf"
+            },
+            {
+                "Name": "mars-express",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_express/mars_express.gltf"
+            },
+            {
+                "Name": "mars-global-surveyor",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_global_surveyor/mars_global_surveyor.gltf"
+            },
+            {
+                "Name": "mars-odyssey",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_odyssey/mars_odyssey.gltf"
+            },
+            {
+                "Name": "mars-reconnaissance-orbiter",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_reconnaissance_orbiter/MRO.gltf"
+            },
+            {
+                "Name": "curiosity",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_science_laboratory/rover/curiosity_static.gltf"
+            },
+            {
+                "Name": "maven",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_maven/Maven.gltf"
+            },
+            {
+                "Name": "mcubed-2",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mcubed_2/M-Cubed2.gltf"
+            },
+            {
+                "Name": "messenger",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_messenger/Messenger.gltf"
+            },
+            {
+                "Name": "mms",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mms/MMS.gltf"
+            },
+            {
+                "Name": "near-shoemaker",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_near_shoemaker/near.gltf"
+            },
+            {
+                "Name": "neo-surveyor",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_neo_surveyor/neosurveyor.gltf"
+            },
+            {
+                "Name": "new-horizons",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_new_horizons/new_horizons.gltf"
+            },
+            {
+                "Name": "nisar",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_nisar/Nisar.gltf"
+            },
+            {
+                "Name": "nustar",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_nustar/nustar.gltf"
+            },
+            {
+                "Name": "oco-2",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_oco_2/oco2.gltf"
+            },
+            {
+                "Name": "opportunity-cruise",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_exploration_rover/cruise/mpf_mera_merb_cruise.gltf"
+            },
+            {
+                "Name": "opportunity-rover",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_mars_exploration_rover/rover/mer_static.gltf"
+            },
+            {
+                "Name": "osiris-apex",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_osiris_rex_v2/osiris_rex_articulated_panels.gltf"
+            },
+            {
+                "Name": "osiris-rex-sample-return-capsule",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_osiris_rex_v2/src/osiris_rex_heatshield.gltf"
+            },
+            {
+                "Name": "pace",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_pace/pace.gltf"
+            },
+            {
+                "Name": "parker-solar-probe",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_parker_solar_probe/PSP.gltf"
+            },
+            {
+                "Name": "philae",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_philae/philae.gltf"
+            },
+            
+            {
+                "Name": "phoenix-cruise",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_phoenix/cruise/phoenix_cruise.gltf"
+            },
+            {
+                "Name": "phoenix-edl",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_phoenix/edl/phoenix_edl.gltf"
+            },
+            {
+                "Name": "pioneer",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_pioneer/pioneer.gltf"
+            },
+            {
+                "Name": "polar",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_polar/polar.gltf"
+            },
+            {
+                "Name": "prefire",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_prefire/prefire.gltf"
+            },
+            {
+                "Name": "psyche",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_psyche/psyche.gltf"
+            },
+            {
+                "Name": "qikscat",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_quikscat/QuikSCAT.gltf"
+            },
+            {
+                "Name": "raincube",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_raincube/Raincube.gltf"
+            },
+            {
+                "Name": "rosetta",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_rosetta/rosettaPhilae.gltf"
+            },
+            {
+                "Name": "cluster-ii",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_cluster_ii/cluster_ii.gltf"
+            },
+            {
+                "Name": "sentinel-6",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_sentinel_6/Sentinel6.gltf"
+            },
+            {
+                "Name": "smap",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_smap/SMAP.gltf"
+            },
+            {
+                "Name": "soho",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_soho/soho.gltf"
+            },
+            {
+                "Name": "solar-dynamics-observatory",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_sdo/sdo.gltf"
+            },
+            {
+                "Name": "sorce",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_sorce/sorce.gltf"
+            },
+            {
+                "Name": "spherex",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_spherex/spherex.gltf"
+            },
+            {
+                "Name": "spirit-cruise",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_mars_exploration_rover/cruise/mpf_mera_merb_cruise.gltf"
+            },
+            {
+                "Name": "spirit-rover",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_mars_exploration_rover/rover/mer_static.gltf"
+            },
+            {
+                "Name": "spitzer-space-telescope",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_spitzer/SPITZER.gltf"
+            },
+            {
+                "Name": "stardust",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_stardust/stardust_articulated.gltf"
+            },
+            {
+                "Name": "stardust-sapmle-return-capsule",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_stardust_src/stardust_capsule.gltf"
+            },
+            {
+                "Name": "starling",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_starling/starling.gltf"
+            },
+            {
+                "Name": "stereo-ahead",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_stereo_ahead/stereo_a.gltf"
+            },
+            {
+                "Name": "stereo-behind",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_stereo_behind/stereo_b.gltf"
+            },
+            {
+                "Name": "suomi-npp",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_npp/NPP.gltf"
+            },
+            {
+                "Name": "swot",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_swot_v2/swot.gltf"
+            },
+            {
+                "Name": "TDRS",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_tdrs/tdrs.gltf"
+            },
+            {
+                "Name": "tempo",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_tempo/tempo.gltf"
+            },
+            {
+                "Name": "terra",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_terra/Terra.gltf"
+            },
+            {
+                "Name": "tess",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_tess/TESS.gltf"
+            },
+            {
+                "Name": "themis",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_themis/themis.gltf"
+            },
+            {
+                "Name": "trace-gas-orbiter",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_trace_gas_orbiter/TGO.gltf"
+            },
+            {
+                "Name": "trmm",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_trmm/TRMM.gltf"
+            },
+            {
+                "Name": "tropics",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_tropics/tropics.gltf"
+            },
+            {
+                "Name": "ulysses",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_ulysses/ulysses.gltf"
+            },
+            {
+                "Name": "van-allen-probe",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_rbsp/rbsp.gltf"
+            },
+            {
+                "Name": "voyager",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_voyager/Voyager.gltf"
+            },
+            {
+                "Name": "wind",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_wind/wind.gltf"
             }
         ]
 }
