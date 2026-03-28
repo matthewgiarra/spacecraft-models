@@ -1,0 +1,251 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.3.48",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "tex_01"
+        },
+        {
+            "children" : [
+                0
+            ],
+            "mesh" : 1,
+            "name" : "Rocket",
+            "rotation" : [
+                0,
+                0.7071068286895752,
+                0.7071068286895752,
+                5.338509012631221e-08
+            ],
+            "scale" : [
+                1.0000040531158447,
+                1.000003695487976,
+                1.000003695487976
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "emissiveFactor" : [
+                0,
+                0,
+                0
+            ],
+            "name" : "tex_01",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 1,
+                    "texCoord" : 0
+                }
+            }
+        },
+        {
+            "emissiveFactor" : [
+                0,
+                0,
+                0
+            ],
+            "name" : "tex_02",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 2,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 3,
+                    "texCoord" : 0
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cylinder.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Cylinder",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "source" : 0
+        },
+        {
+            "source" : 1
+        },
+        {
+            "source" : 0
+        },
+        {
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "explorer_1_albedo",
+            "uri" : "explorer_1_albedo.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "explorer_1_pbr",
+            "uri" : "explorer_1_pbr.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 1003,
+            "max" : [
+                0.6383025646209717,
+                0.6383026838302612,
+                0.17940445244312286
+            ],
+            "min" : [
+                -0.6383026242256165,
+                -0.6383026838302612,
+                -1.0165047645568848
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 1003,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 1003,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 2496,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 4390,
+            "max" : [
+                0.09114006161689758,
+                0.091140016913414,
+                1.0165045261383057
+            ],
+            "min" : [
+                -0.09114006161689758,
+                -0.09114015847444534,
+                -1.0165047645568848
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 4390,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 4390,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 13644,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 12036,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12036,
+            "byteOffset" : 12036
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8024,
+            "byteOffset" : 24072
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4992,
+            "byteOffset" : 32096
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 52680,
+            "byteOffset" : 37088
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 52680,
+            "byteOffset" : 89768
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 35120,
+            "byteOffset" : 142448
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 27288,
+            "byteOffset" : 177568
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 204856,
+            "uri" : "explorer_1.bin"
+        }
+    ]
+}
