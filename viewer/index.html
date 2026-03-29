@@ -9,6 +9,10 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
+    :root {
+      --nasa-blue: #0b3d91;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -32,7 +36,7 @@
       padding: 0 24px 24px;
       margin: 0;
       font-size: 1.5rem;
-      color: #0b3d91;
+      color: var(--nasa-blue);
     }
 
     .model-item {
@@ -44,8 +48,13 @@
       align-items: center;
     }
 
-    .model-item:hover { background: #1a1a1a; }
-    .model-item.active { background: #0b3d91; }
+    .model-item:hover {
+      background: #1a1a1a;
+    }
+
+    .model-item.active {
+      background: var(--nasa-blue);
+    }
 
     .model-name {
       font-weight: 500;
@@ -81,7 +90,7 @@
     }
 
     .download-btn {
-      background: #0b3d91;
+      background: var(--nasa-blue);
       color: white;
       padding: 9px 20px;
       border-radius: 6px;
@@ -102,7 +111,7 @@
     <div id="model-list"></div>
   </div>
 
-  <!-- Main Viewer -->
+  <!-- Main Viewer Area -->
   <div class="main">
     <div class="header">
       <h2 id="current-model">Select a spacecraft</h2>
@@ -130,11 +139,10 @@
 
     async function loadModels() {
       try {
-        // Now loading from the same folder as index.html
         const response = await fetch('models.json');
 
         if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: models.json not found`);
+          throw new Error(`Failed to load models.json (HTTP ${response.status})`);
         }
 
         const data = await response.json();
@@ -152,7 +160,7 @@
           div.onclick = () => loadModel(model);
           listEl.appendChild(div);
 
-          // Load first model automatically
+          // Load first model by default
           if (index === 0) {
             loadModel(model);
           }
@@ -161,32 +169,26 @@
       } catch (error) {
         console.error("Failed to load models.json:", error);
         currentTitle.textContent = "Failed to load models.json";
-        
-        if (window.location.protocol === "file:") {
-          currentTitle.innerHTML = `Local testing issue.<br>
-            Please run:<br>
-            <code>python3 -m http.server 8000</code><br>
-            Then open: http://localhost:8000/viewer/`;
-        }
       }
     }
 
     function loadModel(model) {
-      const modelPath = `../models/${model.folder}/${model.filename}`;
-      
+      // Important: Go up two levels because viewer/ is inside iframe from root
+      const modelPath = `../../models/${model.folder}/${model.filename}`;
+
       viewer.src = modelPath;
       currentTitle.textContent = model.name;
 
       downloadBtn.href = modelPath;
       downloadBtn.download = model.filename;
 
-      // Highlight active item
+      // Highlight active model
       document.querySelectorAll('.model-item').forEach(item => {
         item.classList.toggle('active', item.textContent === model.name);
       });
     }
 
-    // Initialize
+    // Initialize viewer
     loadModels();
   </script>
 </body>

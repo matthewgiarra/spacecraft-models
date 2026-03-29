@@ -5,43 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NASA Spacecraft 3D Models</title>
   <style>
-    body { 
-      font-family: 'Inter', system-ui, sans-serif; 
-      margin: 0; padding: 0; 
-      background: #0a0a0a; color: #fff;
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0a0a0a;
+      color: #ddd;
     }
-    .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
     h1 { color: #0b3d91; }
     iframe {
       width: 100%;
-      height: 700px;
-      border: 1px solid #333;
+      height: 720px;
+      border: 2px solid #333;
       border-radius: 12px;
       background: #111;
     }
-    .description {
-      background: #111; padding: 25px; border-radius: 10px; margin-bottom: 30px;
+    .note {
+      background: #1a1a1a;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>NASA Spacecraft 3D Collection</h1>
-    
-    <div class="description">
-      <p>Interactive 3D viewer for high-quality NASA spacecraft models.</p>
-      <p>Drag to rotate • Scroll to zoom • Use the sidebar to switch models.</p>
-    </div>
+    <p class="note">
+      Interactive 3D viewer • Drag to rotate • Scroll to zoom • Sidebar to switch models
+    </p>
 
-    <h2>Interactive 3D Viewer</h2>
+    <h2>Live 3D Viewer</h2>
     <iframe src="viewer/" 
-            title="NASA Spacecraft 3D Viewer"
+            title="NASA 3D Spacecraft Viewer"
             allowfullscreen>
     </iframe>
 
-    <p style="margin-top: 30px;">
-      <strong>Tip:</strong> The viewer works best in a modern browser. 
-      You can also visit the <a href="viewer/" target="_blank">full-screen viewer</a>.
+    <p style="margin-top: 30px; text-align: center;">
+      <a href="viewer/" target="_blank" style="color:#0b3d91;">
+        → Open Viewer in Full Screen
+      </a>
     </p>
   </div>
 </body>
