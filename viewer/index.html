@@ -8,116 +8,30 @@
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-    :root {
-      --nasa-blue: #0b3d91;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', system-ui, sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
-      overflow: hidden;
-      height: 100vh;
-      display: flex;
-    }
-
-    .sidebar {
-      width: 340px;
-      background: #111111;
-      border-right: 1px solid #222222;
-      overflow-y: auto;
-      padding: 20px 0;
-    }
-
-    .sidebar h1 {
-      padding: 0 24px 24px;
-      margin: 0;
-      font-size: 1.5rem;
-      color: var(--nasa-blue);
-    }
-
-    .model-item {
-      padding: 14px 24px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border-bottom: 1px solid #1a1a1a;
-      display: flex;
-      align-items: center;
-    }
-
-    .model-item:hover {
-      background: #1a1a1a;
-    }
-
-    .model-item.active {
-      background: var(--nasa-blue);
-    }
-
-    .model-name {
-      font-weight: 500;
-      font-size: 1.08rem;
-    }
-
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .header {
-      background: #111111;
-      padding: 16px 28px;
-      border-bottom: 1px solid #222222;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-
-    .header h2 {
-      margin: 0;
-      font-size: 1.35rem;
-      font-weight: 500;
-    }
-
-    model-viewer {
-      flex: 1;
-      width: 100%;
-      background: radial-gradient(circle at center, #1f1f1f, #0a0a0a);
-    }
-
-    .download-btn {
-      background: var(--nasa-blue);
-      color: white;
-      padding: 9px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .download-btn:hover {
-      background: #0a2e70;
-    }
+    body { margin:0; padding:0; font-family:'Inter',sans-serif; background:#0a0a0a; color:#fff; overflow:hidden; height:100vh; display:flex; }
+    .sidebar { width:340px; background:#111; border-right:1px solid #222; overflow-y:auto; padding:20px 0; }
+    .sidebar h1 { padding:0 24px 24px; margin:0; font-size:1.5rem; color:#0b3d91; }
+    .model-item { padding:14px 24px; cursor:pointer; transition:all 0.2s; border-bottom:1px solid #1a1a1a; }
+    .model-item:hover { background:#1a1a1a; }
+    .model-item.active { background:#0b3d91; }
+    .model-name { font-weight:500; font-size:1.08rem; }
+    .main { flex:1; display:flex; flex-direction:column; }
+    .header { background:#111; padding:16px 28px; border-bottom:1px solid #222; display:flex; align-items:center; justify-content:space-between; }
+    model-viewer { flex:1; width:100%; background:radial-gradient(#1f1f1f, #0a0a0a); }
+    .download-btn { background:#0b3d91; color:white; padding:9px 20px; border-radius:6px; text-decoration:none; }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
   <div class="sidebar">
     <h1>NASA Spacecraft</h1>
     <div id="model-list"></div>
   </div>
 
-  <!-- Main Viewer Area -->
   <div class="main">
     <div class="header">
       <h2 id="current-model">Select a spacecraft</h2>
-      <a id="download-btn" href="#" class="download-btn" download>
-        ↓ Download Model
-      </a>
+      <a id="download-btn" href="#" class="download-btn" download>↓ Download Model</a>
     </div>
     
     <model-viewer id="viewer"
@@ -130,67 +44,81 @@
       ar-modes="webxr scene-viewer quick-look">
     </model-viewer>
   </div>
-  
-<script>
-  const viewer = document.getElementById('viewer');
-  const listEl = document.getElementById('model-list');
-  const currentTitle = document.getElementById('current-model');
-  const downloadBtn = document.getElementById('download-btn');
 
-  const REPO_NAME = "spacecraft-models";
+  <script>
+    const viewer = document.getElementById('viewer');
+    const listEl = document.getElementById('model-list');
+    const currentTitle = document.getElementById('current-model');
+    const downloadBtn = document.getElementById('download-btn');
 
-  async function loadModels() {
-    try {
-      const response = await fetch('models.json');
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const REPO_NAME = "spacecraft-models";
 
-      const data = await response.json();
-      const models = data.models || [];
+    console.log("=== NASA 3D Viewer Started ===");
+    console.log("Repo name:", REPO_NAME);
 
-      if (models.length === 0) {
-        currentTitle.textContent = "No models found";
-        return;
+    async function loadModels() {
+      console.log("Fetching models.json...");
+      try {
+        const response = await fetch('models.json');
+        console.log("models.json fetch status:", response.status, response.statusText);
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const data = await response.json();
+        console.log(`Loaded ${data.models ? data.models.length : 0} models from models.json`);
+
+        const models = data.models || [];
+
+        if (models.length === 0) {
+          currentTitle.textContent = "No models found";
+          return;
+        }
+
+        models.forEach((model, index) => {
+          const div = document.createElement('div');
+          div.className = 'model-item';
+          div.innerHTML = `<span class="model-name">${model.name}</span>`;
+          div.onclick = () => loadModel(model);
+          listEl.appendChild(div);
+
+          if (index === 0) {
+            console.log("Auto-loading first model:", model.name);
+            loadModel(model);
+          }
+        });
+
+      } catch (error) {
+        console.error("Failed to load models.json:", error);
+        currentTitle.textContent = "Failed to load models.json";
       }
+    }
 
-      models.forEach((model, index) => {
-        const div = document.createElement('div');
-        div.className = 'model-item';
-        div.innerHTML = `<span class="model-name">${model.name}</span>`;
-        div.onclick = () => loadModel(model);
-        listEl.appendChild(div);
+    function loadModel(model) {
+      const basePath = `/${REPO_NAME}/models/${model.folder}/`;
+      const modelPath = basePath + model.filename;
 
-        if (index === 0) loadModel(model);
+      console.log("────────────────────────────────────");
+      console.log(`Loading model: ${model.name}`);
+      console.log(`Model URL:     ${modelPath}`);
+      console.log(`Resource path: ${basePath}`);
+
+      viewer.src = modelPath;
+      viewer.setAttribute('resource-path', basePath);
+
+      currentTitle.textContent = model.name;
+
+      downloadBtn.href = modelPath;
+      downloadBtn.download = model.filename;
+
+      document.querySelectorAll('.model-item').forEach(item => {
+        item.classList.toggle('active', item.textContent === model.name);
       });
 
-    } catch (error) {
-      console.error("Failed to load models.json:", error);
-      currentTitle.textContent = "Failed to load models.json";
+      console.log("Model loading request sent.");
     }
-  }
 
-  function loadModel(model) {
-    const basePath = `/${REPO_NAME}/models/${model.folder}/`;
-    const modelPath = basePath + model.filename;
-
-    console.log(`[Viewer] Loading: ${model.name} → ${modelPath}`);
-
-    viewer.src = modelPath;
-    viewer.setAttribute('resource-path', basePath);
-
-    currentTitle.textContent = model.name;
-
-    downloadBtn.href = modelPath;
-    downloadBtn.download = model.filename;
-
-    document.querySelectorAll('.model-item').forEach(item => {
-      item.classList.toggle('active', item.textContent === model.name);
-    });
-  }
-
-  // Start
-  loadModels();
-</script>
-
-
+    // Start the viewer
+    loadModels();
+  </script>
 </body>
 </html>
