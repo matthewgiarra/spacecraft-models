@@ -130,71 +130,67 @@
       ar-modes="webxr scene-viewer quick-look">
     </model-viewer>
   </div>
+  
+<script>
+  const viewer = document.getElementById('viewer');
+  const listEl = document.getElementById('model-list');
+  const currentTitle = document.getElementById('current-model');
+  const downloadBtn = document.getElementById('download-btn');
 
-    <script>
-    const viewer = document.getElementById('viewer');
-    const listEl = document.getElementById('model-list');
-    const currentTitle = document.getElementById('current-model');
-    const downloadBtn = document.getElementById('download-btn');
-
-    const REPO_NAME = "spacecraft-models";   // ← Change if your repo name ever changes
-
-    async function loadModels() {
-      try {
-        const response = await fetch('models.json');
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-        const data = await response.json();
-        const models = data.models || [];
-
-        if (models.length === 0) {
-          currentTitle.textContent = "No models found";
-          return;
-        }
-
-        models.forEach((model, index) => {
-          const div = document.createElement('div');
-          div.className = 'model-item';
-          div.innerHTML = `<span class="model-name">${model.name}</span>`;
-          div.onclick = () => loadModel(model);
-          listEl.appendChild(div);
-
-          if (index === 0) loadModel(model);
-        });
-
-      } catch (error) {
-        console.error("Failed to load models.json:", error);
-        currentTitle.textContent = "Failed to load models.json";
-      }
-    }
-
-
-function loadModel(model) {
   const REPO_NAME = "spacecraft-models";
-  const basePath = `/${REPO_NAME}/models/${model.folder}/`;
-  const modelPath = basePath + model.filename;
 
-  console.log("Loading model:", modelPath);   // helpful for debugging
+  async function loadModels() {
+    try {
+      const response = await fetch('models.json');
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-  viewer.src = modelPath;
-  viewer.setAttribute('poster', ''); // optional
+      const data = await response.json();
+      const models = data.models || [];
 
-  // Important: Tell model-viewer where to find textures and other resources
-  viewer.setAttribute('resource-path', basePath);
+      if (models.length === 0) {
+        currentTitle.textContent = "No models found";
+        return;
+      }
 
-  currentTitle.textContent = model.name;
+      models.forEach((model, index) => {
+        const div = document.createElement('div');
+        div.className = 'model-item';
+        div.innerHTML = `<span class="model-name">${model.name}</span>`;
+        div.onclick = () => loadModel(model);
+        listEl.appendChild(div);
 
-  downloadBtn.href = modelPath;
-  downloadBtn.download = model.filename;
+        if (index === 0) loadModel(model);
+      });
 
-  // Highlight active item
-  document.querySelectorAll('.model-item').forEach(item => {
-    item.classList.toggle('active', item.textContent === model.name);
-  });
-}
+    } catch (error) {
+      console.error("Failed to load models.json:", error);
+      currentTitle.textContent = "Failed to load models.json";
+    }
+  }
 
-    // Start the viewer
-    loadModels();
-  </script>
+  function loadModel(model) {
+    const basePath = `/${REPO_NAME}/models/${model.folder}/`;
+    const modelPath = basePath + model.filename;
+
+    console.log(`[Viewer] Loading: ${model.name} → ${modelPath}`);
+
+    viewer.src = modelPath;
+    viewer.setAttribute('resource-path', basePath);
+
+    currentTitle.textContent = model.name;
+
+    downloadBtn.href = modelPath;
+    downloadBtn.download = model.filename;
+
+    document.querySelectorAll('.model-item').forEach(item => {
+      item.classList.toggle('active', item.textContent === model.name);
+    });
+  }
+
+  // Start
+  loadModels();
+</script>
+
+
 </body>
 </html>
