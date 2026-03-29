@@ -168,20 +168,30 @@
       }
     }
 
-    function loadModel(model) {
-      const modelPath = `/${REPO_NAME}/models/${model.folder}/${model.filename}`;
 
-      viewer.src = modelPath;
-      currentTitle.textContent = model.name;
+function loadModel(model) {
+  const REPO_NAME = "spacecraft-models";
+  const basePath = `/${REPO_NAME}/models/${model.folder}/`;
+  const modelPath = basePath + model.filename;
 
-      downloadBtn.href = modelPath;
-      downloadBtn.download = model.filename;
+  console.log("Loading model:", modelPath);   // helpful for debugging
 
-      // Highlight the active model in sidebar
-      document.querySelectorAll('.model-item').forEach(item => {
-        item.classList.toggle('active', item.textContent === model.name);
-      });
-    }
+  viewer.src = modelPath;
+  viewer.setAttribute('poster', ''); // optional
+
+  // Important: Tell model-viewer where to find textures and other resources
+  viewer.setAttribute('resource-path', basePath);
+
+  currentTitle.textContent = model.name;
+
+  downloadBtn.href = modelPath;
+  downloadBtn.download = model.filename;
+
+  // Highlight active item
+  document.querySelectorAll('.model-item').forEach(item => {
+    item.classList.toggle('active', item.textContent === model.name);
+  });
+}
 
     // Start the viewer
     loadModels();
