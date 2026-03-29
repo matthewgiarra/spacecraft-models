@@ -131,19 +131,18 @@
     </model-viewer>
   </div>
 
-  <script>
+    <script>
     const viewer = document.getElementById('viewer');
     const listEl = document.getElementById('model-list');
     const currentTitle = document.getElementById('current-model');
     const downloadBtn = document.getElementById('download-btn');
 
+    const REPO_NAME = "spacecraft-models";   // ← Change if your repo name ever changes
+
     async function loadModels() {
       try {
         const response = await fetch('models.json');
-
-        if (!response.ok) {
-          throw new Error(`Failed to load models.json (HTTP ${response.status})`);
-        }
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
         const data = await response.json();
         const models = data.models || [];
@@ -160,10 +159,7 @@
           div.onclick = () => loadModel(model);
           listEl.appendChild(div);
 
-          // Load first model by default
-          if (index === 0) {
-            loadModel(model);
-          }
+          if (index === 0) loadModel(model);
         });
 
       } catch (error) {
@@ -173,8 +169,7 @@
     }
 
     function loadModel(model) {
-      // Important: Go up two levels because viewer/ is inside iframe from root
-      const modelPath = `../../models/${model.folder}/${model.filename}`;
+      const modelPath = `/${REPO_NAME}/models/${model.folder}/${model.filename}`;
 
       viewer.src = modelPath;
       currentTitle.textContent = model.name;
@@ -182,13 +177,13 @@
       downloadBtn.href = modelPath;
       downloadBtn.download = model.filename;
 
-      // Highlight active model
+      // Highlight the active model in sidebar
       document.querySelectorAll('.model-item').forEach(item => {
         item.classList.toggle('active', item.textContent === model.name);
       });
     }
 
-    // Initialize viewer
+    // Start the viewer
     loadModels();
   </script>
 </body>
