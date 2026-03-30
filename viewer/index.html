@@ -13,16 +13,81 @@
       margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif;
       background: #0a0a0a; color: #ffffff; overflow: hidden; height: 100vh; display: flex;
     }
-    .sidebar { width: 340px; background: #111; border-right: 1px solid #222; overflow-y: auto; padding: 20px 0; }
-    .sidebar h1 { padding: 0 24px 24px; margin: 0; font-size: 1.5rem; color: #0b3d91; }
-    .model-item { padding: 14px 24px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid #1a1a1a; }
+    .sidebar { 
+      width: 340px; 
+      background: #111; 
+      border-right: 1px solid #222; 
+      overflow-y: auto; 
+      padding: 20px 0; 
+    }
+    .sidebar h1 { 
+      padding: 0 24px 24px; 
+      margin: 0; 
+      font-size: 1.5rem; 
+      color: #0b3d91; 
+    }
+    .model-item { 
+      padding: 14px 24px; 
+      cursor: pointer; 
+      transition: all 0.2s; 
+      border-bottom: 1px solid #1a1a1a; 
+    }
     .model-item:hover { background: #1a1a1a; }
     .model-item.active { background: #0b3d91; }
     .model-name { font-weight: 500; font-size: 1.08rem; }
+
     .main { flex: 1; display: flex; flex-direction: column; }
-    .header { background: #111; padding: 16px 28px; border-bottom: 1px solid #222; display: flex; align-items: center; justify-content: space-between; }
-    model-viewer { flex: 1; width: 100%; background: radial-gradient(#1f1f1f, #0a0a0a); }
-    .download-btn { background: #0b3d91; color: white; padding: 9px 20px; border-radius: 6px; text-decoration: none; font-weight: 500; }
+    .header { 
+      background: #111; 
+      padding: 16px 28px; 
+      border-bottom: 1px solid #222; 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+    }
+
+    model-viewer { 
+      flex: 1; 
+      width: 100%; 
+      background: radial-gradient(#1f1f1f, #0a0a0a); 
+    }
+
+    /* Loading Animation */
+    .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #FFFFFF;
+      z-index: 100;
+      display: none;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #222;
+      border-top: 5px solid #0b3d91;
+      border-radius: 50%;
+      animation: spin 1.2s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loading-text {
+      font-size: 1rem;
+    }
+
+    .download-btn { 
+      background: #0b3d91; 
+      color: white; 
+      padding: 9px 20px; 
+      border-radius: 6px; 
+      text-decoration: none; 
+      font-weight: 500; 
+    }
   </style>
 </head>
 <body>
@@ -46,6 +111,12 @@
       environment-intensity="0.8"
       ar
       ar-modes="webxr scene-viewer quick-look">
+
+      <!-- Loading Animation -->
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading spacecraft...</div>
+      </div>
     </model-viewer>
   </div>
 
@@ -54,13 +125,13 @@
     const listEl = document.getElementById('model-list');
     const currentTitle = document.getElementById('current-model');
     const downloadBtn = document.getElementById('download-btn');
+    const loadingEl = document.getElementById('loading');
+
+    let currentModelName = null;   // Track currently loaded model
 
     const isLocal = location.hostname === "localhost" || 
                     location.hostname === "127.0.0.1" || 
                     location.protocol === "file:";
-
-    console.log("=== NASA 3D Viewer (GLB mode) ===");
-    console.log("Mode:", isLocal ? "LOCAL" : "GitHub Pages");
 
     async function loadModels() {
       try {
@@ -84,19 +155,21 @@
     }
 
     function loadModel(model) {
-      let glbUrl;
-
-      if (isLocal) {
-        // Local testing - relative path
-        glbUrl = `../../models/${model.folder}/${model.folder}.glb`;
-        console.log(`[LOCAL] Loading ${model.name}`);
-      } else {
-        // GitHub Pages - LFS media URL
-        glbUrl = `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/${model.folder}.glb`;
-        console.log(`[REMOTE] Loading ${model.name}`);
+      // Prevent reloading the same model (and infinite loading spinner)
+      if (currentModelName === model.name) {
+        return;
       }
 
-      console.log("  GLB URL →", glbUrl);
+      currentModelName = model.name;
+
+      let glbUrl = isLocal 
+        ? `../../models/${model.folder}/${model.folder}.glb`
+        : `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/${model.folder}.glb`;
+
+      console.log(`Loading: ${model.name}`);
+
+      // Show loading
+      loadingEl.style.display = 'block';
 
       viewer.src = glbUrl;
 
@@ -105,13 +178,25 @@
       downloadBtn.href = glbUrl;
       downloadBtn.download = `${model.folder}.glb`;
 
-      // Highlight active model
+      // Highlight active item
       document.querySelectorAll('.model-item').forEach(item => {
         item.classList.toggle('active', item.textContent === model.name);
       });
+
+      // Hide loading when model finishes loading
+      viewer.addEventListener('load', () => {
+        loadingEl.style.display = 'none';
+        console.log(`Successfully loaded: ${model.name}`);
+      }, { once: true });
+
+      // Also hide on error
+      viewer.addEventListener('error', () => {
+        loadingEl.style.display = 'none';
+        console.error(`Failed to load: ${model.name}`);
+      }, { once: true });
     }
 
-    // Start the viewer
+    // Start
     loadModels();
   </script>
 </body>
