@@ -55,57 +55,65 @@
     const currentTitle = document.getElementById('current-model');
     const downloadBtn = document.getElementById('download-btn');
 
-    const USER = "matthewgiarra";
-    const REPO = "spacecraft-models";
-    const BRANCH = "main";
+    // Auto-detect environment
+    const isLocal = window.location.protocol === "file:" || 
+                    window.location.hostname === "localhost" || 
+                    window.location.hostname === "127.0.0.1";
 
-    console.log("=== NASA Spacecraft Viewer (Git LFS mode) ===");
+    console.log("=== NASA 3D Viewer ===");
+    console.log("Mode:", isLocal ? "LOCAL" : "GitHub Pages");
 
     async function loadModels() {
-      console.log("Loading models.json...");
       try {
-        const response = await fetch('models.json');
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        
-        const data = await response.json();
+        const res = await fetch('models.json');
+        const data = await res.json();
         const models = data.models || [];
-        console.log(`Loaded ${models.length} models`);
 
-        models.forEach((model, index) => {
+        models.forEach((model, i) => {
           const div = document.createElement('div');
           div.className = 'model-item';
           div.innerHTML = `<span class="model-name">${model.name}</span>`;
           div.onclick = () => loadModel(model);
           listEl.appendChild(div);
 
-          if (index === 0) loadModel(model);
+          if (i === 0) loadModel(model);
         });
-
-      } catch (error) {
-        console.error("Failed to load models.json:", error);
+      } catch (e) {
+        console.error("Failed to load models.json", e);
         currentTitle.textContent = "Failed to load models.json";
       }
     }
 
     function loadModel(model) {
-      const basePath = `https://media.githubusercontent.com/media/${USER}/${REPO}/refs/heads/${BRANCH}/models/${model.folder}/`;
-      const modelPath = basePath + model.filename;
+      let gltfUrl;
+      let resourceBase;
 
-      console.log(`\nLoading model: ${model.name}`);
-      console.log(`Model:  ${modelPath}`);
-      console.log(`Base:   ${basePath}`);
+      if (isLocal) {
+        // Local testing - relative paths
+        gltfUrl = `../../models/${model.folder}/${model.filename}`;
+        resourceBase = `../../models/${model.folder}/`;
+        console.log(`[LOCAL] Loading ${model.name}`);
+      } else {
+        // GitHub Pages - mixed URLs (gltf normal, textures via LFS)
+        gltfUrl = `https://raw.githubusercontent.com/matthewgiarra/spacecraft-models/main/models/${model.folder}/${model.filename}`;
+        resourceBase = `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/`;
+        console.log(`[REMOTE] Loading ${model.name}`);
+      }
 
-      viewer.src = modelPath;
-      viewer.setAttribute('resource-path', basePath);
+      console.log("  GLTF:", gltfUrl);
+      console.log("  Textures base:", resourceBase);
+
+      viewer.src = gltfUrl;
+      viewer.setAttribute('resource-path', resourceBase);
 
       currentTitle.textContent = model.name;
 
-      downloadBtn.href = modelPath;
+      downloadBtn.href = gltfUrl;
       downloadBtn.download = model.filename;
 
-      document.querySelectorAll('.model-item').forEach(item => {
-        item.classList.toggle('active', item.textContent === model.name);
-      });
+      document.querySelectorAll('.model-item').forEach(el => 
+        el.classList.toggle('active', el.textContent === model.name)
+      );
     }
 
     // Start
