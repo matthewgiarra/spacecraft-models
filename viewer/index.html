@@ -3,91 +3,116 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NASA Spacecraft 3D Viewer</title>
+  <title>3D Viewer • NASA Spacecraft</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     
+    :root {
+      --nasa-blue: #0b3d91;
+      --accent: #00b4d8;
+    }
+
     body {
       margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif;
-      background: #0a0a0a; color: #ffffff; overflow: hidden; height: 100vh; display: flex;
+      background: #05070f; color: #e0e0e0; overflow: hidden; height: 100vh; display: flex;
     }
-    .sidebar { 
-      width: 340px; 
-      background: #111; 
-      border-right: 1px solid #222; 
-      overflow-y: auto; 
-      padding: 20px 0; 
+
+    .sidebar {
+      width: 380px;
+      background: #0a0c1a;
+      border-right: 1px solid #1a1f38;
+      overflow-y: auto;
+      padding: 32px 0;
     }
-    .sidebar h1 { 
-      padding: 0 24px 24px; 
-      margin: 0; 
-      font-size: 1.5rem; 
-      color: #0b3d91; 
+
+    .sidebar h1 {
+      padding: 0 32px 32px;
+      margin: 0;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.02em;
     }
-    .model-item { 
-      padding: 14px 24px; 
-      cursor: pointer; 
-      transition: all 0.2s; 
-      border-bottom: 1px solid #1a1a1a; 
+
+    .model-item {
+      display: flex;
+      align-items: center;
+      padding: 14px 32px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border-bottom: 1px solid #1a1f38;
     }
-    .model-item:hover { background: #1a1a1a; }
-    .model-item.active { background: #0b3d91; }
-    .model-name { font-weight: 500; font-size: 1.08rem; }
+
+    .model-item:hover { background: #11141f; }
+    .model-item.active { 
+      background: rgba(11, 61, 145, 0.3); 
+      border-left: 4px solid var(--nasa-blue);
+    }
+
+    .model-name {
+      font-weight: 500;
+      font-size: 1.07rem;
+    }
 
     .main { flex: 1; display: flex; flex-direction: column; }
-    .header { 
-      background: #111; 
-      padding: 16px 28px; 
-      border-bottom: 1px solid #222; 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
+
+    .header {
+      background: #0a0c1a;
+      padding: 24px 40px;
+      border-bottom: 1px solid #1a1f38;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
     }
 
-    model-viewer { 
-      flex: 1; 
-      width: 100%; 
-      background: radial-gradient(#1f1f1f, #0a0a0a); 
+    .header h2 {
+      margin: 0;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: #ddd;
     }
 
-    /* Loading Animation */
+    model-viewer {
+      flex: 1;
+      width: 100%;
+      background: #05070f;
+    }
+
+    /* Loading */
     .loading {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      color: #FFFFFF;
+      color: #777;
       z-index: 100;
       display: none;
     }
     .spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid #222;
-      border-top: 5px solid #0b3d91;
+      width: 56px;
+      height: 56px;
+      border: 6px solid #1a1f38;
+      border-top: 6px solid var(--accent);
       border-radius: 50%;
-      animation: spin 1.2s linear infinite;
-      margin: 0 auto 16px;
+      animation: spin 1.4s linear infinite;
+      margin: 0 auto 18px;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .loading-text {
-      font-size: 1rem;
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    .download-btn { 
-      background: #0b3d91; 
-      color: white; 
-      padding: 9px 20px; 
-      border-radius: 6px; 
-      text-decoration: none; 
-      font-weight: 500; 
+    .download-btn {
+      background: var(--nasa-blue);
+      color: white;
+      padding: 11px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
     }
+    .download-btn:hover { background: #0a4a9e; }
   </style>
 </head>
 <body>
@@ -100,22 +125,21 @@
   <div class="main">
     <div class="header">
       <h2 id="current-model">Select a spacecraft</h2>
-      <a id="download-btn" href="#" class="download-btn" download>↓ Download Model</a>
+      <a id="download-btn" href="#" class="download-btn" download>↓ Download</a>
     </div>
     
     <model-viewer id="viewer"
       camera-controls
       auto-rotate
       shadow-intensity="1.0"
-      exposure="0.9"
-      environment-intensity="0.8"
+      exposure="0.92"
+      environment-intensity="0.85"
       ar
       ar-modes="webxr scene-viewer quick-look">
 
-      <!-- Loading Animation -->
       <div class="loading" id="loading">
         <div class="spinner"></div>
-        <div class="loading-text">Loading spacecraft...</div>
+        <div>Loading spacecraft...</div>
       </div>
     </model-viewer>
   </div>
@@ -127,11 +151,9 @@
     const downloadBtn = document.getElementById('download-btn');
     const loadingEl = document.getElementById('loading');
 
-    let currentModelName = null;   // Track currently loaded model
+    let currentModelName = null;
 
-    const isLocal = location.hostname === "localhost" || 
-                    location.hostname === "127.0.0.1" || 
-                    location.protocol === "file:";
+    const isLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.protocol === "file:";
 
     async function loadModels() {
       try {
@@ -150,53 +172,32 @@
         });
       } catch (e) {
         console.error("Failed to load models.json", e);
-        currentTitle.textContent = "Failed to load models";
       }
     }
 
     function loadModel(model) {
-      // Prevent reloading the same model (and infinite loading spinner)
-      if (currentModelName === model.name) {
-        return;
-      }
-
+      if (currentModelName === model.name) return;
       currentModelName = model.name;
 
-      let glbUrl = isLocal 
+      const glbUrl = isLocal 
         ? `../../models/${model.folder}/${model.folder}.glb`
         : `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/${model.folder}.glb`;
 
-      console.log(`Loading: ${model.name}`);
-
-      // Show loading
       loadingEl.style.display = 'block';
-
       viewer.src = glbUrl;
 
       currentTitle.textContent = model.name;
-
       downloadBtn.href = glbUrl;
       downloadBtn.download = `${model.folder}.glb`;
 
-      // Highlight active item
       document.querySelectorAll('.model-item').forEach(item => {
         item.classList.toggle('active', item.textContent === model.name);
       });
 
-      // Hide loading when model finishes loading
-      viewer.addEventListener('load', () => {
-        loadingEl.style.display = 'none';
-        console.log(`Successfully loaded: ${model.name}`);
-      }, { once: true });
-
-      // Also hide on error
-      viewer.addEventListener('error', () => {
-        loadingEl.style.display = 'none';
-        console.error(`Failed to load: ${model.name}`);
-      }, { once: true });
+      viewer.addEventListener('load', () => loadingEl.style.display = 'none', { once: true });
+      viewer.addEventListener('error', () => loadingEl.style.display = 'none', { once: true });
     }
 
-    // Start
     loadModels();
   </script>
 </body>
