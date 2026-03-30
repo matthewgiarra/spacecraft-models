@@ -8,17 +8,84 @@
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-    body { margin:0; padding:0; font-family:'Inter',sans-serif; background:#0a0a0a; color:#fff; overflow:hidden; height:100vh; display:flex; }
-    .sidebar { width:340px; background:#111; border-right:1px solid #222; overflow-y:auto; padding:20px 0; }
-    .sidebar h1 { padding:0 24px 24px; margin:0; font-size:1.5rem; color:#0b3d91; }
-    .model-item { padding:14px 24px; cursor:pointer; transition:all 0.2s; border-bottom:1px solid #1a1a1a; }
-    .model-item:hover { background:#1a1a1a; }
-    .model-item.active { background:#0b3d91; }
-    .model-name { font-weight:500; font-size:1.08rem; }
-    .main { flex:1; display:flex; flex-direction:column; }
-    .header { background:#111; padding:16px 28px; border-bottom:1px solid #222; display:flex; align-items:center; justify-content:space-between; }
-    model-viewer { flex:1; width:100%; background:radial-gradient(#1f1f1f, #0a0a0a); }
-    .download-btn { background:#0b3d91; color:white; padding:9px 20px; border-radius:6px; text-decoration:none; }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 340px;
+      background: #111111;
+      border-right: 1px solid #222222;
+      overflow-y: auto;
+      padding: 20px 0;
+    }
+
+    .sidebar h1 {
+      padding: 0 24px 24px;
+      margin: 0;
+      font-size: 1.5rem;
+      color: #0b3d91;
+    }
+
+    .model-item {
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .model-item:hover { background: #1a1a1a; }
+    .model-item.active { background: #0b3d91; }
+
+    .model-name {
+      font-weight: 500;
+      font-size: 1.08rem;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background: #111111;
+      padding: 16px 28px;
+      border-bottom: 1px solid #222222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    model-viewer {
+      flex: 1;
+      width: 100%;
+      background: radial-gradient(circle at center, #1f1f1f, #0a0a0a);
+    }
+
+    .download-btn {
+      background: #0b3d91;
+      color: white;
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+    }
   </style>
 </head>
 <body>
@@ -54,25 +121,19 @@
     const REPO_NAME = "spacecraft-models";
 
     console.log("=== NASA 3D Viewer Started ===");
-    console.log("Repo name:", REPO_NAME);
 
     async function loadModels() {
       console.log("Fetching models.json...");
       try {
         const response = await fetch('models.json');
-        console.log("models.json fetch status:", response.status, response.statusText);
+        console.log(`models.json status: ${response.status}`);
 
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
         const data = await response.json();
-        console.log(`Loaded ${data.models ? data.models.length : 0} models from models.json`);
-
         const models = data.models || [];
 
-        if (models.length === 0) {
-          currentTitle.textContent = "No models found";
-          return;
-        }
+        console.log(`Loaded ${models.length} models`);
 
         models.forEach((model, index) => {
           const div = document.createElement('div');
@@ -81,10 +142,7 @@
           div.onclick = () => loadModel(model);
           listEl.appendChild(div);
 
-          if (index === 0) {
-            console.log("Auto-loading first model:", model.name);
-            loadModel(model);
-          }
+          if (index === 0) loadModel(model);
         });
 
       } catch (error) {
@@ -94,13 +152,24 @@
     }
 
     function loadModel(model) {
-      const basePath = `/${REPO_NAME}/models/${model.folder}/`;
+      // This version works both locally and on GitHub Pages
+      let basePath;
+
+      if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+        // Local testing
+        basePath = `../../models/${model.folder}/`;
+        console.log(`[Local] Using relative path: ${basePath}`);
+      } else {
+        // GitHub Pages
+        basePath = `https://matthewgiarra.github.io/${REPO_NAME}/models/${model.folder}/`;
+        console.log(`[GitHub Pages] Using absolute path: ${basePath}`);
+      }
+
       const modelPath = basePath + model.filename;
 
-      console.log("────────────────────────────────────");
-      console.log(`Loading model: ${model.name}`);
-      console.log(`Model URL:     ${modelPath}`);
-      console.log(`Resource path: ${basePath}`);
+      console.log(`Loading: ${model.name}`);
+      console.log(`Model:   ${modelPath}`);
+      console.log(`Base:    ${basePath}`);
 
       viewer.src = modelPath;
       viewer.setAttribute('resource-path', basePath);
@@ -113,11 +182,9 @@
       document.querySelectorAll('.model-item').forEach(item => {
         item.classList.toggle('active', item.textContent === model.name);
       });
-
-      console.log("Model loading request sent.");
     }
 
-    // Start the viewer
+    // Start
     loadModels();
   </script>
 </body>
