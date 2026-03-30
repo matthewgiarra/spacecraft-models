@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>NASA Spacecraft • 3D Explorer</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
   
@@ -12,6 +12,7 @@
     body {
       margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif;
       background: #05070f; color: #e0e0e0; overflow: hidden; height: 100vh;
+      touch-action: none; /* Important for mobile */
     }
 
     .header {
@@ -38,26 +39,9 @@
       font-weight: 500;
       color: #aaa;
       margin-right: 20px;
-      white-space: nowrap;
     }
 
-    /* Current Model Name - Inside Viewer Area */
-    .viewer-label {
-      position: absolute;
-      top: 24px;
-      left: 32px;
-      font-size: 1.35rem;
-      font-weight: 500;
-      color: #ddd;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-      z-index: 100;
-      pointer-events: none;
-      background: rgba(5,7,15,0.6);
-      padding: 6px 16px;
-      border-radius: 8px;
-    }
-
-    /* Floating Dropdown Menu */
+    /* Floating Dropdown */
     .model-menu {
       position: absolute;
       top: 68px;
@@ -65,7 +49,7 @@
       background: #0f1324;
       border: 1px solid #1a1f38;
       border-radius: 10px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.7);
       min-width: 260px;
       max-width: 380px;
       max-height: 70vh;
@@ -104,7 +88,7 @@
       width: 100%;
       height: calc(100vh - 61px);
       background: #05070f;
-      position: relative;
+      touch-action: none;   /* Prevent page scroll */
     }
 
     /* Loading */
@@ -153,9 +137,6 @@
     ar
     ar-modes="webxr scene-viewer quick-look">
 
-    <!-- Current Model Name Overlay -->
-    <div class="viewer-label" id="viewer-label">—</div>
-
     <div class="loading" id="loading">
       <div class="spinner"></div>
       <div>Loading spacecraft...</div>
@@ -166,18 +147,15 @@
     const hamburger = document.getElementById('hamburger');
     const modelMenu = document.getElementById('model-menu');
     const viewer = document.getElementById('viewer');
-    const viewerLabel = document.getElementById('viewer-label');
-    const downloadBtn = document.getElementById('download-btn');
     const loadingEl = document.getElementById('loading');
+    const currentTitle = document.getElementById('current-model'); // not used but kept
 
     let currentModelName = null;
     let menuOpen = false;
 
-    const isLocal = location.hostname === "localhost" || 
-                    location.hostname === "127.0.0.1" || 
-                    location.protocol === "file:";
+    const isLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.protocol === "file:";
 
-    // Toggle menu
+    // Hamburger menu
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
       menuOpen = !menuOpen;
@@ -228,12 +206,6 @@
 
       loadingEl.style.display = 'block';
       viewer.src = glbUrl;
-
-      // Update label inside viewer area
-      viewerLabel.textContent = model.name;
-
-      downloadBtn.href = glbUrl;
-      downloadBtn.download = `${model.folder}.glb`;
 
       viewer.addEventListener('load', () => {
         loadingEl.style.display = 'none';
