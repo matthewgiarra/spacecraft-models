@@ -661,8 +661,8 @@
     }
     ,
     {
-      "name": "TDRS",
-      "folder": "TDRS",
+      "name": "tdrs",
+      "folder": "tdrs",
       "filename": "tdrs.gltf"
     }
     ,
