@@ -55,13 +55,9 @@
     const currentTitle = document.getElementById('current-model');
     const downloadBtn = document.getElementById('download-btn');
 
-    // Auto-detect environment
-    const isLocal = window.location.protocol === "file:" || 
-                    window.location.hostname === "localhost" || 
-                    window.location.hostname === "127.0.0.1";
-
-    console.log("=== NASA 3D Viewer ===");
-    console.log("Mode:", isLocal ? "LOCAL" : "GitHub Pages");
+    const isLocal = location.hostname === "localhost" || 
+                    location.hostname === "127.0.0.1" || 
+                    location.protocol === "file:";
 
     async function loadModels() {
       try {
@@ -75,44 +71,48 @@
           div.innerHTML = `<span class="model-name">${model.name}</span>`;
           div.onclick = () => loadModel(model);
           listEl.appendChild(div);
-
           if (i === 0) loadModel(model);
         });
       } catch (e) {
         console.error("Failed to load models.json", e);
-        currentTitle.textContent = "Failed to load models.json";
+        currentTitle.textContent = "Failed to load models";
       }
     }
 
     function loadModel(model) {
-      let gltfUrl;
-      let resourceBase;
+      let gltfUrl, resourceBase;
 
       if (isLocal) {
-        // Local testing - relative paths
+        // Local server
         gltfUrl = `../../models/${model.folder}/${model.filename}`;
         resourceBase = `../../models/${model.folder}/`;
         console.log(`[LOCAL] Loading ${model.name}`);
       } else {
-        // GitHub Pages - mixed URLs (gltf normal, textures via LFS)
-        gltfUrl = `https://raw.githubusercontent.com/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/${model.filename}`;
-
+        // GitHub Pages
+        gltfUrl = `https://raw.githubusercontent.com/matthewgiarra/spacecraft-models/main/models/${model.folder}/${model.filename}`;
         resourceBase = `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/`;
-
         console.log(`[REMOTE] Loading ${model.name}`);
       }
 
-      console.log("  GLTF:", gltfUrl);
-      console.log("  Textures base:", resourceBase);
+      console.log("  GLTF URL →", gltfUrl);
+      console.log("  Resource base →", resourceBase);
 
+      // Main model
       viewer.src = gltfUrl;
+
+      // Force resource path for textures
       viewer.setAttribute('resource-path', resourceBase);
 
-      currentTitle.textContent = model.name;
+      // Extra safety: re-apply after load starts
+      viewer.addEventListener('load', () => {
+        console.log(`Model loaded: ${model.name}`);
+      }, { once: true });
 
+      currentTitle.textContent = model.name;
       downloadBtn.href = gltfUrl;
       downloadBtn.download = model.filename;
 
+      // Highlight active
       document.querySelectorAll('.model-item').forEach(el => 
         el.classList.toggle('active', el.textContent === model.name)
       );
