@@ -1,5 +1,13 @@
 {
-    m
+    "Spacecraft": [
+            {
+                "Name" : "ace",
+                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ace/ace.gltf"
+            },
+            {
+                "Name": "acrimsat",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_acrimsat/acrimsat.gltf"
+            },
             {
                 "Name": "acs3",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_acs3/acs3.gltf"
