@@ -3,82 +3,108 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Viewer • NASA Spacecraft</title>
+  <title>NASA Spacecraft • 3D Explorer</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     
-    :root {
-      --nasa-blue: #0b3d91;
-      --accent: #00b4d8;
-    }
-
     body {
       margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif;
-      background: #05070f; color: #e0e0e0; overflow: hidden; height: 100vh; display: flex;
+      background: #05070f; color: #e0e0e0; overflow: hidden; height: 100vh;
     }
-
-    .sidebar {
-      width: 380px;
-      background: #0a0c1a;
-      border-right: 1px solid #1a1f38;
-      overflow-y: auto;
-      padding: 32px 0;
-    }
-
-    .sidebar h1 {
-      padding: 0 32px 32px;
-      margin: 0;
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: white;
-      letter-spacing: -0.02em;
-    }
-
-    .model-item {
-      display: flex;
-      align-items: center;
-      padding: 14px 32px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      border-bottom: 1px solid #1a1f38;
-    }
-
-    .model-item:hover { background: #11141f; }
-    .model-item.active { 
-      background: rgba(11, 61, 145, 0.3); 
-      border-left: 4px solid var(--nasa-blue);
-    }
-
-    .model-name {
-      font-weight: 500;
-      font-size: 1.07rem;
-    }
-
-    .main { flex: 1; display: flex; flex-direction: column; }
 
     .header {
       background: #0a0c1a;
-      padding: 24px 40px;
+      padding: 16px 20px;
       border-bottom: 1px solid #1a1f38;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-shrink: 0;
+      z-index: 200;
     }
 
-    .header h2 {
-      margin: 0;
-      font-size: 1.45rem;
-      font-weight: 600;
+    .hamburger {
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: #ccc;
+      cursor: pointer;
+      padding: 4px 12px;
+      margin-right: 12px;
+    }
+
+    .menu-label {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #aaa;
+      margin-right: 20px;
+      white-space: nowrap;
+    }
+
+    /* Current Model Name - Inside Viewer Area */
+    .viewer-label {
+      position: absolute;
+      top: 24px;
+      left: 32px;
+      font-size: 1.35rem;
+      font-weight: 500;
       color: #ddd;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      z-index: 100;
+      pointer-events: none;
+      background: rgba(5,7,15,0.6);
+      padding: 6px 16px;
+      border-radius: 8px;
+    }
+
+    /* Floating Dropdown Menu */
+    .model-menu {
+      position: absolute;
+      top: 68px;
+      left: 20px;
+      background: #0f1324;
+      border: 1px solid #1a1f38;
+      border-radius: 10px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+      min-width: 260px;
+      max-width: 380px;
+      max-height: 70vh;
+      overflow-y: auto;
+      z-index: 300;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .model-menu.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    .model-item {
+      padding: 14px 24px;
+      cursor: pointer;
+      border-bottom: 1px solid #1a1f38;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .model-item:last-child { border-bottom: none; }
+    .model-item:hover { background: #1a1f38; }
+    .model-item.active { background: rgba(11, 61, 145, 0.4); }
+
+    .model-name {
+      font-weight: 500;
+      font-size: 1.08rem;
     }
 
     model-viewer {
-      flex: 1;
       width: 100%;
+      height: calc(100vh - 61px);
       background: #05070f;
+      position: relative;
     }
 
     /* Loading */
@@ -89,71 +115,82 @@
       transform: translate(-50%, -50%);
       text-align: center;
       color: #777;
-      z-index: 100;
+      z-index: 400;
       display: none;
     }
     .spinner {
       width: 56px;
       height: 56px;
       border: 6px solid #1a1f38;
-      border-top: 6px solid var(--accent);
+      border-top: 6px solid #00b4d8;
       border-radius: 50%;
       animation: spin 1.4s linear infinite;
-      margin: 0 auto 18px;
+      margin: 0 auto 16px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    .download-btn {
-      background: var(--nasa-blue);
-      color: white;
-      padding: 11px 26px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    .download-btn:hover { background: #0a4a9e; }
   </style>
 </head>
 <body>
 
-  <div class="sidebar">
-    <h1>NASA Spacecraft</h1>
+  <div class="header">
+    <button class="hamburger" id="hamburger">☰</button>
+    <span class="menu-label">Select Model</span>
+    <div style="flex: 1;"></div>
+    <a id="download-btn" href="#" class="download-btn" download>↓ GLB</a>
+  </div>
+
+  <!-- Floating Menu -->
+  <div class="model-menu" id="model-menu">
     <div id="model-list"></div>
   </div>
 
-  <div class="main">
-    <div class="header">
-      <h2 id="current-model">Select a spacecraft</h2>
-      <a id="download-btn" href="#" class="download-btn" download>↓ Download</a>
-    </div>
-    
-    <model-viewer id="viewer"
-      camera-controls
-      auto-rotate
-      shadow-intensity="1.0"
-      exposure="0.92"
-      environment-intensity="0.85"
-      ar
-      ar-modes="webxr scene-viewer quick-look">
+  <model-viewer id="viewer"
+    camera-controls
+    auto-rotate="false"
+    shadow-intensity="1.0"
+    exposure="0.92"
+    environment-intensity="0.85"
+    ar
+    ar-modes="webxr scene-viewer quick-look">
 
-      <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <div>Loading spacecraft...</div>
-      </div>
-    </model-viewer>
-  </div>
+    <!-- Current Model Name Overlay -->
+    <div class="viewer-label" id="viewer-label">—</div>
+
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <div>Loading spacecraft...</div>
+    </div>
+  </model-viewer>
 
   <script>
+    const hamburger = document.getElementById('hamburger');
+    const modelMenu = document.getElementById('model-menu');
     const viewer = document.getElementById('viewer');
-    const listEl = document.getElementById('model-list');
-    const currentTitle = document.getElementById('current-model');
+    const viewerLabel = document.getElementById('viewer-label');
     const downloadBtn = document.getElementById('download-btn');
     const loadingEl = document.getElementById('loading');
 
     let currentModelName = null;
+    let menuOpen = false;
 
-    const isLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.protocol === "file:";
+    const isLocal = location.hostname === "localhost" || 
+                    location.hostname === "127.0.0.1" || 
+                    location.protocol === "file:";
+
+    // Toggle menu
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuOpen = !menuOpen;
+      modelMenu.classList.toggle('open', menuOpen);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !modelMenu.contains(e.target)) {
+        menuOpen = false;
+        modelMenu.classList.remove('open');
+      }
+    });
 
     async function loadModels() {
       try {
@@ -165,8 +202,14 @@
           const div = document.createElement('div');
           div.className = 'model-item';
           div.innerHTML = `<span class="model-name">${model.name}</span>`;
-          div.onclick = () => loadModel(model);
-          listEl.appendChild(div);
+          div.onclick = () => {
+            loadModel(model);
+            if (window.innerWidth < 900) {
+              menuOpen = false;
+              modelMenu.classList.remove('open');
+            }
+          };
+          document.getElementById('model-list').appendChild(div);
 
           if (i === 0) loadModel(model);
         });
@@ -186,18 +229,18 @@
       loadingEl.style.display = 'block';
       viewer.src = glbUrl;
 
-      currentTitle.textContent = model.name;
+      // Update label inside viewer area
+      viewerLabel.textContent = model.name;
+
       downloadBtn.href = glbUrl;
       downloadBtn.download = `${model.folder}.glb`;
 
-      document.querySelectorAll('.model-item').forEach(item => {
-        item.classList.toggle('active', item.textContent === model.name);
-      });
-
-      viewer.addEventListener('load', () => loadingEl.style.display = 'none', { once: true });
-      viewer.addEventListener('error', () => loadingEl.style.display = 'none', { once: true });
+      viewer.addEventListener('load', () => {
+        loadingEl.style.display = 'none';
+      }, { once: true });
     }
 
+    // Initialize
     loadModels();
   </script>
 </body>
