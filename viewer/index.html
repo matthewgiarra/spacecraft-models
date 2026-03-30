@@ -95,8 +95,10 @@
         console.log(`[LOCAL] Loading ${model.name}`);
       } else {
         // GitHub Pages - mixed URLs (gltf normal, textures via LFS)
-        gltfUrl = `https://raw.githubusercontent.com/matthewgiarra/spacecraft-models/main/models/${model.folder}/${model.filename}`;
+        gltfUrl = `https://raw.githubusercontent.com/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/${model.filename}`;
+
         resourceBase = `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/`;
+
         console.log(`[REMOTE] Loading ${model.name}`);
       }
 
