@@ -41,9 +41,9 @@
     <model-viewer id="viewer"
       camera-controls
       auto-rotate
-      shadow-intensity="1.2"
-      exposure="0.95"
-      environment-intensity="0.85"
+      shadow-intensity="1.0"
+      exposure="0.9"
+      environment-intensity="0.8"
       ar
       ar-modes="webxr scene-viewer quick-look">
     </model-viewer>
@@ -59,6 +59,9 @@
                     location.hostname === "127.0.0.1" || 
                     location.protocol === "file:";
 
+    console.log("=== NASA 3D Viewer (GLB mode) ===");
+    console.log("Mode:", isLocal ? "LOCAL" : "GitHub Pages");
+
     async function loadModels() {
       try {
         const res = await fetch('models.json');
@@ -71,6 +74,7 @@
           div.innerHTML = `<span class="model-name">${model.name}</span>`;
           div.onclick = () => loadModel(model);
           listEl.appendChild(div);
+
           if (i === 0) loadModel(model);
         });
       } catch (e) {
@@ -80,45 +84,34 @@
     }
 
     function loadModel(model) {
-      let gltfUrl, resourceBase;
+      let glbUrl;
 
       if (isLocal) {
-        // Local server
-        gltfUrl = `../../models/${model.folder}/${model.filename}`;
-        resourceBase = `../../models/${model.folder}/`;
+        // Local testing - relative path
+        glbUrl = `../../models/${model.folder}/${model.folder}.glb`;
         console.log(`[LOCAL] Loading ${model.name}`);
       } else {
-        // GitHub Pages
-        gltfUrl = `https://raw.githubusercontent.com/matthewgiarra/spacecraft-models/main/models/${model.folder}/${model.filename}`;
-        resourceBase = `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/`;
+        // GitHub Pages - LFS media URL
+        glbUrl = `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/${model.folder}.glb`;
         console.log(`[REMOTE] Loading ${model.name}`);
       }
 
-      console.log("  GLTF URL →", gltfUrl);
-      console.log("  Resource base →", resourceBase);
+      console.log("  GLB URL →", glbUrl);
 
-      // Main model
-      viewer.src = gltfUrl;
-
-      // Force resource path for textures
-      viewer.setAttribute('resource-path', resourceBase);
-
-      // Extra safety: re-apply after load starts
-      viewer.addEventListener('load', () => {
-        console.log(`Model loaded: ${model.name}`);
-      }, { once: true });
+      viewer.src = glbUrl;
 
       currentTitle.textContent = model.name;
-      downloadBtn.href = gltfUrl;
-      downloadBtn.download = model.filename;
 
-      // Highlight active
-      document.querySelectorAll('.model-item').forEach(el => 
-        el.classList.toggle('active', el.textContent === model.name)
-      );
+      downloadBtn.href = glbUrl;
+      downloadBtn.download = `${model.folder}.glb`;
+
+      // Highlight active model
+      document.querySelectorAll('.model-item').forEach(item => {
+        item.classList.toggle('active', item.textContent === model.name);
+      });
     }
 
-    // Start
+    // Start the viewer
     loadModels();
   </script>
 </body>
