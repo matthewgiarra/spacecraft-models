@@ -16,39 +16,44 @@
 
     .header {
       background: white;
-      padding: 20px 32px;
+      padding: 16px 20px;
       border-bottom: 1px solid #e0e0e0;
       display: flex;
       align-items: center;
       z-index: 200;
+      gap: 12px;
     }
 
     .hamburger {
-      font-size: 30px;
+      font-size: 28px;
       background: none;
       border: none;
       color: #555;
       cursor: pointer;
-      padding: 4px 12px;
-      margin-right: 16px;
+      padding: 8px;
+      flex-shrink: 0;
     }
 
     .menu-label {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 500;
       color: #444;
-      margin-right: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .current-model {
       margin: 0 auto;
-      font-size: 1.4rem;
+      font-size: 1.25rem;           /* smaller on mobile */
       font-weight: 600;
       color: #0b3d91;
       text-align: center;
       flex: 1;
-      letter-spacing: -0.02em;
-}
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     /* Floating Menu */
     .model-menu {
@@ -98,25 +103,44 @@
       background: #f8f9fa;
     }
 
-    /* Download Button */
+  /* Download Button */
     .download-btn {
       background: #0b3d91;
       color: white;
       border: none;
-      padding: 12px 28px;
+      padding: 10px 20px;
       border-radius: 8px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.95rem;
       cursor: pointer;
       transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .download-btn:hover {
       background: #0a2e70;
-      transform: translateY(-1px);
+    }
+
+    /* Make button smaller on very narrow screens */
+    @media (max-width: 480px) {
+      .header {
+        padding: 14px 16px;
+      }
+      .hamburger {
+        font-size: 26px;
+        padding: 6px;
+      }
+      .menu-label {
+        font-size: 1rem;
+      }
+      .current-model {
+        font-size: 1.15rem;
+      }
+      .download-btn {
+        padding: 9px 16px;
+        font-size: 0.9rem;
+      }
     }
 
     /* Loading */
