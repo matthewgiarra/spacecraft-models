@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NASA Spacecraft • 3D Explorer</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
   
@@ -11,53 +11,62 @@
     
     body {
       margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif;
-      background: #05070f; color: #e0e0e0; overflow: hidden; height: 100vh;
-      touch-action: none; /* Important for mobile */
+      background: #f8f9fa; color: #1a1a1a; overflow: hidden; height: 100vh;
     }
 
     .header {
-      background: #0a0c1a;
-      padding: 16px 20px;
-      border-bottom: 1px solid #1a1f38;
+      background: white;
+      padding: 20px 32px;
+      border-bottom: 1px solid #e0e0e0;
       display: flex;
       align-items: center;
       z-index: 200;
     }
 
     .hamburger {
-      font-size: 28px;
+      font-size: 30px;
       background: none;
       border: none;
-      color: #ccc;
+      color: #555;
       cursor: pointer;
       padding: 4px 12px;
-      margin-right: 12px;
+      margin-right: 16px;
     }
 
     .menu-label {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 500;
-      color: #aaa;
+      color: #444;
       margin-right: 20px;
     }
 
-    /* Floating Dropdown */
+    .current-model {
+      margin: 0 auto;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #0b3d91;
+      text-align: center;
+      flex: 1;
+      letter-spacing: -0.02em;
+}
+
+    /* Floating Menu */
     .model-menu {
       position: absolute;
-      top: 68px;
-      left: 20px;
-      background: #0f1324;
-      border: 1px solid #1a1f38;
-      border-radius: 10px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.7);
-      min-width: 260px;
-      max-width: 380px;
+      top: 78px;
+      left: 32px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      min-width: 280px;
+      max-width: 400px;
       max-height: 70vh;
       overflow-y: auto;
       z-index: 300;
       opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.25s ease;
+      transform: translateY(-15px);
+      transition: all 0.3s ease;
       pointer-events: none;
     }
 
@@ -68,16 +77,15 @@
     }
 
     .model-item {
-      padding: 14px 24px;
+      padding: 16px 28px;
       cursor: pointer;
-      border-bottom: 1px solid #1a1f38;
-      white-space: nowrap;
+      border-bottom: 1px solid #f0f0f0;
       transition: background 0.2s;
     }
 
     .model-item:last-child { border-bottom: none; }
-    .model-item:hover { background: #1a1f38; }
-    .model-item.active { background: rgba(11, 61, 145, 0.4); }
+    .model-item:hover { background: #f8f9fa; }
+    .model-item.active { background: #e6f0ff; color: #0b3d91; }
 
     .model-name {
       font-weight: 500;
@@ -86,9 +94,29 @@
 
     model-viewer {
       width: 100%;
-      height: calc(100vh - 61px);
-      background: #05070f;
-      touch-action: none;   /* Prevent page scroll */
+      height: calc(100vh - 72px);
+      background: #f8f9fa;
+    }
+
+    /* Download Button */
+    .download-btn {
+      background: #0b3d91;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .download-btn:hover {
+      background: #0a2e70;
+      transform: translateY(-1px);
     }
 
     /* Loading */
@@ -98,17 +126,17 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      color: #777;
+      color: #666;
       z-index: 400;
       display: none;
     }
     .spinner {
-      width: 56px;
-      height: 56px;
-      border: 6px solid #1a1f38;
-      border-top: 6px solid #00b4d8;
+      width: 52px;
+      height: 52px;
+      border: 5px solid #eee;
+      border-top: 5px solid #0b3d91;
       border-radius: 50%;
-      animation: spin 1.4s linear infinite;
+      animation: spin 1.3s linear infinite;
       margin: 0 auto 16px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -116,12 +144,12 @@
 </head>
 <body>
 
-  <div class="header">
-    <button class="hamburger" id="hamburger">☰</button>
-    <span class="menu-label">Select Model</span>
-    <div style="flex: 1;"></div>
-    <a id="download-btn" href="#" class="download-btn" download>↓ GLB</a>
-  </div>
+<div class="header">
+  <button class="hamburger" id="hamburger">☰</button>
+  <span class="menu-label">Select Model</span>
+  <div class="current-model" id="current-model">—</div>
+  <button id="download-btn" class="download-btn">↓ Download Model</button>
+</div>
 
   <!-- Floating Menu -->
   <div class="model-menu" id="model-menu">
@@ -132,14 +160,14 @@
     camera-controls
     auto-rotate="false"
     shadow-intensity="1.0"
-    exposure="0.92"
-    environment-intensity="0.85"
+    exposure="0.95"
+    environment-intensity="0.9"
     ar
     ar-modes="webxr scene-viewer quick-look">
 
     <div class="loading" id="loading">
       <div class="spinner"></div>
-      <div>Loading spacecraft...</div>
+      <div>Loading model...</div>
     </div>
   </model-viewer>
 
@@ -147,15 +175,18 @@
     const hamburger = document.getElementById('hamburger');
     const modelMenu = document.getElementById('model-menu');
     const viewer = document.getElementById('viewer');
+    const currentTitle = document.getElementById('current-model');
+    const downloadBtn = document.getElementById('download-btn');
     const loadingEl = document.getElementById('loading');
-    const currentTitle = document.getElementById('current-model'); // not used but kept
 
     let currentModelName = null;
     let menuOpen = false;
 
-    const isLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.protocol === "file:";
+    const isLocal = location.hostname === "localhost" || 
+                    location.hostname === "127.0.0.1" || 
+                    location.protocol === "file:";
 
-    // Hamburger menu
+    // Hamburger menu toggle
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
       menuOpen = !menuOpen;
@@ -206,6 +237,18 @@
 
       loadingEl.style.display = 'block';
       viewer.src = glbUrl;
+
+      currentTitle.textContent = model.name;
+
+      // Real button download handler
+      downloadBtn.onclick = () => {
+        const link = document.createElement('a');
+        link.href = glbUrl;
+        link.download = `${model.folder}.glb`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
 
       viewer.addEventListener('load', () => {
         loadingEl.style.display = 'none';
