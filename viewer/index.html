@@ -44,15 +44,11 @@
 
     .current-model {
       margin: 0 auto;
-      font-size: 1.25rem;           /* smaller on mobile */
+      font-size: 1.35rem;
       font-weight: 600;
       color: #0b3d91;
       text-align: center;
       flex: 1;
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }
 
     /* Floating Menu */
@@ -63,7 +59,7 @@
       background: white;
       border: 1px solid #ddd;
       border-radius: 12px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
       min-width: 280px;
       max-width: 400px;
       max-height: 70vh;
@@ -97,53 +93,82 @@
       font-size: 1.08rem;
     }
 
+    .info-btn {
+    background: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-right: 12px;
+    }
+
+  .info-btn:hover {
+    background: #333;
+  }
+
+  /* Info Panel */
+  .info-panel {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    padding: 24px;
+    width: 90%;
+    max-width: 620px;
+    max-height: 420px;        /* Fixed max height */
+    overflow-y: auto;         /* Enable scrolling */
+    display: none;            /* Start hidden */
+    z-index: 150;
+  }
+
+  .info-panel.open {
+    display: block;
+  }
+
+  .info-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #999;
+    cursor: pointer;
+  }
+
     model-viewer {
       width: 100%;
       height: calc(100vh - 72px);
       background: #f8f9fa;
     }
 
-  /* Download Button */
     .download-btn {
       background: #0b3d91;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 10px 24px;
       border-radius: 8px;
       font-weight: 600;
       font-size: 0.95rem;
       cursor: pointer;
-      transition: all 0.2s ease;
       flex-shrink: 0;
-      white-space: nowrap;
     }
 
     .download-btn:hover {
       background: #0a2e70;
     }
 
-    /* Make button smaller on very narrow screens */
-    @media (max-width: 480px) {
-      .header {
-        padding: 14px 16px;
-      }
-      .hamburger {
-        font-size: 26px;
-        padding: 6px;
-      }
-      .menu-label {
-        font-size: 1rem;
-      }
-      .current-model {
-        font-size: 1.15rem;
-      }
-      .download-btn {
-        padding: 9px 16px;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Loading */
     .loading {
       position: absolute;
       top: 50%;
@@ -168,12 +193,15 @@
 </head>
 <body>
 
-<div class="header">
-  <button class="hamburger" id="hamburger">☰</button>
-  <span class="menu-label">Select Model</span>
-  <div class="current-model" id="current-model">—</div>
-  <button id="download-btn" class="download-btn">↓ Download Model</button>
-</div>
+  <div class="header">
+    <button class="hamburger" id="hamburger">☰</button>
+    <span class="menu-label">Select Model</span>
+    <div class="current-model" id="current-model">—</div>
+    
+    <button id="info-btn" class="info-btn">Spacecraft Info</button>
+    
+    <button id="download-btn" class="download-btn">↓ Download Model</button>
+  </div>
 
   <!-- Floating Menu -->
   <div class="model-menu" id="model-menu">
@@ -189,10 +217,20 @@
     ar
     ar-modes="webxr scene-viewer quick-look">
 
+    <!-- Info Panel -->
+    <div class="info-panel" id="info-panel">
+      <div class="info-panel-header">
+        <h3 id="info-title">Description</h3>
+        <button class="close-btn" id="close-info">×</button>
+      </div>
+      <p id="info-content">Placeholder info text</p>
+    </div>
+
     <div class="loading" id="loading">
       <div class="spinner"></div>
       <div>Loading model...</div>
     </div>
+
   </model-viewer>
 
   <script>
@@ -205,6 +243,7 @@
 
     let currentModelName = null;
     let menuOpen = false;
+    let infoOpen = false;
 
     const isLocal = location.hostname === "localhost" || 
                     location.hostname === "127.0.0.1" || 
@@ -225,6 +264,24 @@
       }
     });
 
+    // Spacecraft Info button
+    const infoBtn = document.getElementById('info-btn');
+    const infoPanel = document.getElementById('info-panel');
+
+    infoBtn.addEventListener('click', () => {
+      infoPanel.classList.toggle('open');
+    });
+
+    // Close with X button
+    document.getElementById('close-info').addEventListener('click', () => {
+      infoPanel.classList.remove('open');
+    });
+
+    // Ensure info panel starts hidden
+    // document.getElementById('info-panel').style.display = 'none';
+
+    document.getElementById('info-panel').classList.remove('open');
+
     async function loadModels() {
       try {
         const res = await fetch('models.json');
@@ -235,6 +292,7 @@
           const div = document.createElement('div');
           div.className = 'model-item';
           div.innerHTML = `<span class="model-name">${model.name}</span>`;
+
           div.onclick = () => {
             loadModel(model);
             if (window.innerWidth < 900) {
@@ -264,7 +322,10 @@
 
       currentTitle.textContent = model.name;
 
-      // Real button download handler
+      
+      // Update info panel title
+      document.getElementById('info-title').innerHTML = `Description: ${model.name}`;
+
       downloadBtn.onclick = () => {
         const link = document.createElement('a');
         link.href = glbUrl;

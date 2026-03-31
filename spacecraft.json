@@ -2,491 +2,979 @@
     "Spacecraft": [
             {
                 "Name" : "ace",
+                "DisplayName": "ACE",
+                "FullName": "Advanced Composition Explorer (ACE)",
+                "Description": "NASA's Advanced Composition Explorer (ACE) collects and analyzes particles of solar, interplanetary, interstellar and galactic origins.\nThe ACE robotic spacecraft was launched August 25, 1997, and entered an orbit close to the L1 Lagrangian point (which lies between the Sun and the Earth at a distance of some 1.5 million km from the latter) on December 12, 1997. The data contributes to our understanding of the Sun, its interaction with Earth, and the evolution of the solar system. ACE continues to provide space weather reports and warnings of geomagnetic storms that can disrupt communications on Earth and harm astronauts in space.",
+                "URL": "https://eyes.nasa.gov/apps/solar-system/#/sc_ace",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ace/ace.gltf"
             },
             {
                 "Name": "acrimsat",
-                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_acrimsat/acrimsat.gltf"
+                "DisplayName": "ACRIMSAT",
+                "FullName": "Active Cavity Radiometer Irradiance Monitor Satellite (ACRIMSAT)",
+                "Description": "ACRIMSAT (Active Cavity Radiometer Irradiance Monitor Satellite) was a mission to monitor the levels of total solar irradiance, which is the power per square meter delivered by the sun.\nLaunched in December 1999, the mission lasted almost 14 years, until contact was lost on December 13th, 2013. Monitoring the sun's output over a long period can help separate climate change effects of the sun's variance from other effects such as the greenhouse effect.",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_acrimsat/acrimsat.gltf",
+                "URL": "https://eyes.nasa.gov/apps/solar-system/#/sc_acrimsat"
             },
             {
                 "Name": "acs3",
+                "DisplayName": "ACS3",
+                "FullName": "Advanced Composite Solar Sail System (ACS3)",
+                "Description": "The Advanced Composite Solar Sail System (ACS3) technology demonstration mission uses a twelve-unit (12U) CubeSat orbiting Earth to test a new composite boom made from flexible polymer and carbon fiber materials that are stiffer and lighter than previous boom designs.\nThe mission's primary objective is to successfully demonstrate new boom deployment, but once deployed, assessment of sail performance is expected. The solar sail employs the pressure of sunlight for propulsion, eliminating the need for rocket propellant.",
+                "URL": "https://eyes.nasa.gov/apps/solar-system/#/sc_acs3",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_acs3/acs3.gltf"
             },
             {
                 "Name": "aqua",
+                "DisplayName": "Aqua",
+                "FullName": "Aqua",
+                "Description": "Aqua is a NASA Earth Science satellite mission named for the large amount of information that the mission is collecting about the Earth's water cycle.\nThe Aqua mission collects data about evaporation from the oceans, water vapor in the atmosphere, clouds, precipitation, soil moisture, sea ice, land ice, and snow cover on the land and ice. Additional variables also being measured by Aqua include radiative energy fluxes, aerosols, vegetation cover on the land, phytoplankton and dissolved organic matter in the oceans, and air, land, and water temperatures. Aqua was launched on May 4, 2002, and has six Earth-observing instruments on board, collecting a variety of global data sets. Aqua was originally developed for a six-year design life but has now far exceeded that original goal. It continues transmitting high-quality data from four of its six instruments, AIRS, AMSU, CERES, and MODIS, and reduced quality data from a fifth instrument, AMSR-E. The sixth Aqua instrument, HSB, collected approximately nine months of high quality data but failed in February 2003. Aqua was the first member launched of a group of satellites termed the Afternoon Constellation, or sometimes the A-Train.",
+                "URL": "https://eyes.nasa.gov/apps/solar-system/#/sc_aqua",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_aqua/Aqua.gltf"
             },
             {
                 "Name": "aquarius",
-                "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_sac_d/aquarius.gltf"
+                "DisplayName": "Aquarius",
+                "FullName": "Aquarius (SAC-D)",
+                "Description": "The Aquarius mission, also known as SAC-D, has an instrument also called Aquarius that measured sea surface salinity.\nThe Aquarius instrument's surface salinity measurements contributed to a better understanding of ocean dynamics and advancing climate and ocean models, both from season to season and year to year.",
+                "URL": "https://eyes.nasa.gov/apps/solar-system/#/sc_sac_d",
+                "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_sac_d/aquarius.gltf"
             },
             {
                 "Name": "artemis-1",
+                "DisplayName": "Artemis 1",
+                "Full Name": "Artemis 1",
+                "Description": "Artemis I was an uncrewed flight test that was the first mission to use NASA's Space Launch System (SLS) and the Orion spacecraft. It will be followed by a crewed flight on Artemis II.\nThe first in a series of increasingly complex missions, Artemis I was an uncrewed flight test that provided a foundation for human deep space exploration, and demonstrated our commitment and capability to extend human existence to the Moon and beyond. The spacecraft launched on the most powerful rocket in the world and flew farther than any spacecraft built for humans has ever flown, traveling thousands of miles past the moon, then entering a distant retrograde orbit of the moon before returning to Earth.",
+                "URL": "https://eyes.nasa.gov/apps/solar-system/#/sc_artemis_1",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_artemis/artemis_ii.gltf"
             },
             {
                 "Name": "aura",
+                "DisplayName": "Aura",
+                "Full Name": "Aura (Latin for breeze)",
+                "Description": "Aura (Latin for breeze) obtains measurements of ozone, aerosols and key gases throughout the atmosphere using technologically innovative space instrumentation. Scientists use these data to gain revolutionary insights into the chemistry of our atmosphere.\nAura's instruments measure trace gases in the atmosphere by detecting their unique spectral signatures. MLS observes the faint microwave emissions from rotating and vibrating molecules. HIRDLS and TES observe the infrared thermal emissions also due to molecular vibrations and rotations. OMI detects the molecular absorption of backscattered sunlight in the visible and ultraviolet wavelengths.\n Horizon viewing (limb) instruments (MLS, TES and HIRDLS slice through the atmosphere, profiling gases. Down-looking instruments (OMI and TES) stare at the Earth. Since MLS looks out the front of the spacecraft, it is the first to profile the atmosphere. The OMI and TES instruments then look at the same air mass as it passes beneath the spacecraft. As the spacecraft then moves on in its orbit, HIRDLS and TES profile the atmosphere again. This unique observing geometry allows the Aura instruments to combine their measurements to get a better picture of the atmospheric chemistry.",
+                "URL": "https://eyes.nasa.gov/apps/solar-system/#/sc_aura",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_aura/Aura.gltf"
             },
             {
                 "Name": "biosentinel",
+                "DisplayName": "BioSentinel",
+                "FullName": "BioSentinel",
+                "Description": "NASA's BioSentinel is a shoebox-sized CubeSat that will perform the first long-duration biology experiment in deep space.\nThe satellite launched to deep space aboard Artemis I and flew past the Moon in a direction to orbit the Sun. Once the satellite is in position beyond our planet's protective magnetic field, it will conduct a study of the effects of deep space radiation on a living organism, yeast. Because human cells and yeast cells have many similar biological mechanisms, including DNA damage and repair, BioSentinel's experiments can help us better understand the radiation risks for long-duration deep space human exploration. BioSentinel will carry living organisms farther into space than ever before. NASA's Artemis missions at the Moon will prepare humans to travel on increasingly farther and longer-duration missions to destinations like Mars. Results from BioSentinel's six- to nine-month mission will fill critical gaps in knowledge about the health risks in deep space posed by space radiation.",
+                "URL": "https://eyes.nasa.gov/apps/solar-system/#/sc_biosentinel",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_biosentinel/biosentinel.gltf"
             },
             {
                 "Name": "calipso",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_calipso/calipso.gltf"
             },
             {
                 "Name": "capstone",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_capstone/capstone.gltf"
             },     
             {
                 "Name": "cassini",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_cassini/Cassini.gltf"
             }, 
             {
                 "Name": "chandra",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_chandra/chandra.gltf"
             },  
             {
                 "Name": "clementine",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_clementine/clementine_isas.gltf"
             },
             {
                 "Name": "cloudsat",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_cloudsat/CloudSat.gltf"
             },
             {
                 "Name": "cygnss",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_cygnss/CYGNSS.gltf"
             },
             {
                 "Name": "danuri",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_danuri/danuri.gltf"
             },
             {
                 "Name": "dart",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_dart/dart.gltf"
             },
             {
                 "Name": "dawn",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_dawn/model.gltf"
             },
             {
                 "Name": "deep-impact",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_deep_impact/deep_impact_wo_impactor.gltf"
             },  
             {
                 "Name": "deep-space-1",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_deep_space_1/deep_space_1.gltf"
             },
             {
                 "Name": "dscovr",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_dscovr/dscovr.gltf"
             },     
             {
                 "Name": "eo-1",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_eo_1/eo-1.gltf"
             },     
             {
                 "Name": "escapade",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_escapade/escapade.gltf"
             },     
             {
                 "Name": "euclid",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_euclid/euclid.gltf"
             }, 
             {
                 "Name": "europa-clipper",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_europa_clipper/europa_clipper.gltf"
             },  
             {
                 "Name": "explorer-1",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_explorer_1_v2/explorer_1.gltf"
             },  
             {
                 "Name": "galileo",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_galileo/galileo.gltf"
             }, 
             {
                 "Name": "galileo-probe",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_galileo_probe/galileo_probe.gltf"
             },
             {
                 "Name": "geotail",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_geotail/geotail.gltf"
             },
             {
                 "Name": "gpm",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_gpm/GPM.gltf"
             },
             {
                 "Name": "grace",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_grace/grace.gltf"
             },
             {
                 "Name": "grace-fo1",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_grace_fo/graceFO.gltf"
             },
             {
                 "Name": "grail",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_grail/grail_b.gltf"
             },
             {
                 "Name": "grifex",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_grifex/grifex.gltf"
             },
             {
                 "Name": "hubble",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_hubble/Hubble.gltf"
             },  
             {
                 "Name": "huygens",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_huygens/Huygens.gltf"
             },
             {
                 "Name": "ibex",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ibex/iBEX.gltf"
             },
             {
                 "Name": "icesat-2",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_icesatii/ICESat2.gltf"
             },
             {
                 "Name": "image",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_image/image.gltf"
             },
             {
                 "Name": "imap",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_imap/imap.gltf"
             },
             {
                 "Name": "insight",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_insight/lander/insight.gltf"
             },
             {
                 "Name": "iss",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_iss/ISS_stationary.gltf"
             }, 
             {
                 "Name": "ipex",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ipex/IPEX.gltf"
             },
             {
                 "Name": "ixpe",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ixpe/ixpe.gltf"
             },                                                              
             {
                 "Name": "jwst",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_jwst/webb_deployed.gltf"
             },
             {
                 "Name": "jason",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ostm/ostm.gltf"
             },
             {
                 "Name": "juice",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_juice/juice.gltf"
             },
             {
                 "Name": "juno",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_juno/Juno.gltf"
             },
             {
                 "Name": "kepler",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_kepler/Kepler.gltf"
             },
             {
                 "Name": "ladee",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_ladee/ladee.gltf"
             },
             {
                 "Name": "landsat-7",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_landsat_7/LandSat7.gltf"
             },
             {
                 "Name": "landsat-8",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_landsat_8/LandSat8.gltf"
             },
             {
                 "Name": "landsat-9",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_landsat_9/Landsat9.gltf"
             },
             {
                 "Name": "lcross",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lcross/lcross.gltf"
             },
             {
                 "Name": "lucy",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lucy/lucy.gltf"
             },
             {
                 "Name": "lunar-flashlight",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lunar_flashlight/lunar_flashlight.gltf"
             },
             {
                 "Name": "lunar-prospector",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lunar_prospector/lunar_prospector.gltf"
             },
             {
                 "Name": "lunar-reconnaissance-orbiter",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_lunar_reconnaissance_orbiter/LRO.gltf"
             },
             {
                 "Name": "magellan",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_magellan/magellan.gltf"
             },
             {
                 "Name": "marco",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_marco/model.gltf"
             },
             {
                 "Name": "mariner-2",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mariner_2/mariner2.gltf"
             },
             {
                 "Name": "perseverence",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_2020/rover/perseverance.gltf"
             },
             {
                 "Name": "mars-express",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_express/mars_express.gltf"
             },
             {
                 "Name": "mars-global-surveyor",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_global_surveyor/mars_global_surveyor.gltf"
             },
             {
                 "Name": "mars-odyssey",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_odyssey/mars_odyssey.gltf"
             },
             {
                 "Name": "mars-reconnaissance-orbiter",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_reconnaissance_orbiter/MRO.gltf"
             },
             {
                 "Name": "curiosity",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_science_laboratory/rover/curiosity_static.gltf"
             },
             {
                 "Name": "maven",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_maven/Maven.gltf"
             },
             {
                 "Name": "mcubed-2",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mcubed_2/M-Cubed2.gltf"
             },
             {
                 "Name": "messenger",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_messenger/Messenger.gltf"
             },
             {
                 "Name": "mms",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mms/MMS.gltf"
             },
             {
                 "Name": "near-shoemaker",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_near_shoemaker/near.gltf"
             },
             {
                 "Name": "neo-surveyor",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_neo_surveyor/neosurveyor.gltf"
             },
             {
                 "Name": "new-horizons",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_new_horizons/new_horizons.gltf"
             },
             {
                 "Name": "nisar",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_nisar/Nisar.gltf"
             },
             {
                 "Name": "nustar",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_nustar/nustar.gltf"
             },
             {
                 "Name": "oco-2",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_oco_2/oco2.gltf"
             },
             {
                 "Name": "opportunity-cruise",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF" : "https://eyes.nasa.gov/assets/static/models/sc_mars_exploration_rover/cruise/mpf_mera_merb_cruise.gltf"
             },
             {
                 "Name": "opportunity-rover",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_mars_exploration_rover/rover/mer_static.gltf"
             },
             {
                 "Name": "osiris-apex",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_osiris_rex_v2/osiris_rex_articulated_panels.gltf"
             },
             {
                 "Name": "osiris-rex-sample-return-capsule",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_osiris_rex_v2/src/osiris_rex_heatshield.gltf"
             },
             {
                 "Name": "pace",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_pace/pace.gltf"
             },
             {
                 "Name": "parker-solar-probe",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_parker_solar_probe/PSP.gltf"
             },
             {
                 "Name": "philae",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_philae/philae.gltf"
             },
             
             {
                 "Name": "phoenix-cruise",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_phoenix/cruise/phoenix_cruise.gltf"
             },
             {
                 "Name": "phoenix-edl",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_phoenix/edl/phoenix_edl.gltf"
             },
             {
                 "Name": "pioneer",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_pioneer/pioneer.gltf"
             },
             {
                 "Name": "polar",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_polar/polar.gltf"
             },
             {
                 "Name": "prefire",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_prefire/prefire.gltf"
             },
             {
                 "Name": "psyche",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_psyche/psyche.gltf"
             },
             {
                 "Name": "qikscat",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_quikscat/QuikSCAT.gltf"
             },
             {
                 "Name": "raincube",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_raincube/Raincube.gltf"
             },
             {
                 "Name": "rosetta",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_rosetta/rosettaPhilae.gltf"
             },
             {
                 "Name": "cluster-ii",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_cluster_ii/cluster_ii.gltf"
             },
             {
                 "Name": "sentinel-6",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_sentinel_6/Sentinel6.gltf"
             },
             {
                 "Name": "smap",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_smap/SMAP.gltf"
             },
             {
                 "Name": "soho",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_soho/soho.gltf"
             },
             {
                 "Name": "solar-dynamics-observatory",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_sdo/sdo.gltf"
             },
             {
                 "Name": "sorce",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_sorce/sorce.gltf"
             },
             {
                 "Name": "spherex",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_spherex/spherex.gltf"
             },
             {
                 "Name": "spirit-cruise",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_mars_exploration_rover/cruise/mpf_mera_merb_cruise.gltf"
             },
             {
                 "Name": "spirit-rover",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_mars_exploration_rover/rover/mer_static.gltf"
             },
             {
                 "Name": "spitzer-space-telescope",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_spitzer/SPITZER.gltf"
             },
             {
                 "Name": "stardust",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_stardust/stardust_articulated.gltf"
             },
             {
                 "Name": "stardust-sapmle-return-capsule",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_stardust_src/stardust_capsule.gltf"
             },
             {
                 "Name": "starling",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_starling/starling.gltf"
             },
             {
                 "Name": "stereo-ahead",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_stereo_ahead/stereo_a.gltf"
             },
             {
                 "Name": "stereo-behind",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_stereo_behind/stereo_b.gltf"
             },
             {
                 "Name": "suomi-npp",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_npp/NPP.gltf"
             },
             {
                 "Name": "swot",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_swot_v2/swot.gltf"
             },
             {
                 "Name": "tdrs",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_tdrs/tdrs.gltf"
             },
             {
                 "Name": "tempo",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_tempo/tempo.gltf"
             },
             {
                 "Name": "terra",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_terra/Terra.gltf"
             },
             {
                 "Name": "tess",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_tess/TESS.gltf"
             },
             {
                 "Name": "themis",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_themis/themis.gltf"
             },
             {
                 "Name": "trace-gas-orbiter",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_trace_gas_orbiter/TGO.gltf"
             },
             {
                 "Name": "trmm",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_trmm/TRMM.gltf"
             },
             {
                 "Name": "tropics",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_tropics/tropics.gltf"
             },
             {
                 "Name": "ulysses",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_ulysses/ulysses.gltf"
             },
             {
                 "Name": "van-allen-probe",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_rbsp/rbsp.gltf"
             },
             {
                 "Name": "voyager",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_voyager/Voyager.gltf"
             },
             {
                 "Name": "wind",
+                "DisplayName": "",
+                "FullName": "",
+                "Description": "",
+                "URL": "",                
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_wind/wind.gltf"
             }
         ]
