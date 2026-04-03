@@ -223,7 +223,7 @@
         <h3 id="info-title">Description</h3>
         <button class="close-btn" id="close-info">×</button>
       </div>
-      <p id="info-content">Placeholder info text</p>
+      <p id="info-content">Placeholder Text</p> 
     </div>
 
     <div class="loading" id="loading">
@@ -286,12 +286,14 @@
       try {
         const res = await fetch('models.json');
         const data = await res.json();
-        const models = data.models || [];
+        const models = data.Models || [];
 
         models.forEach((model, i) => {
+          console.log(`Loading ${model.DisplayName}`)
           const div = document.createElement('div');
           div.className = 'model-item';
-          div.innerHTML = `<span class="model-name">${model.name}</span>`;
+          div.innerHTML = `<span class="model-name">${model.DisplayName}</span>`;
+
 
           div.onclick = () => {
             loadModel(model);
@@ -310,26 +312,37 @@
     }
 
     function loadModel(model) {
-      if (currentModelName === model.name) return;
-      currentModelName = model.name;
+      if (currentModelName === model.ModelName) return;
+      currentModelName = model.ModelName;
 
       const glbUrl = isLocal 
-        ? `../../models/${model.folder}/${model.folder}.glb`
-        : `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.folder}/${model.folder}.glb`;
+        ? `../../models/${model.FolderName}/${model.glbFileName}`
+        : `https://media.githubusercontent.com/media/matthewgiarra/spacecraft-models/refs/heads/main/models/${model.FolderName}/${model.glbFileName}`;
 
       loadingEl.style.display = 'block';
       viewer.src = glbUrl;
 
-      currentTitle.textContent = model.name;
+      // Update the panel display name
+      currentTitle.textContent = model.DisplayName;
 
-      
       // Update info panel title
-      document.getElementById('info-title').innerHTML = `Description: ${model.name}`;
+      document.getElementById('info-title').innerHTML = `${model.FullName}`;
+
+      // Convert \n to <br> and render as HTML
+      let descriptionHTML = model.Description 
+        ? model.Description.replace(/\n/g, '<br>') 
+        : "<em>No description available.</em>";
+
+      // Add additional text with link
+      // descriptionHTML += '<hr style="margin: 25px 0 25px 0;">';
+      descriptionHTML += `<br><br><a href="${model.eotssURL}" target="_blank" style="color: #0b3d91;">Click here to view ${model.DisplayName || model.name} at NASA Eyes On The Solar System</a>`;
+
+      document.getElementById('info-content').innerHTML = descriptionHTML;
 
       downloadBtn.onclick = () => {
         const link = document.createElement('a');
         link.href = glbUrl;
-        link.download = `${model.folder}.glb`;
+        link.download = `${model.glbFileName}`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
