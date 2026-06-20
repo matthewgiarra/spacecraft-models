@@ -1,5 +1,5 @@
 # spacecraft-models
-3D models of spacecraft from [NASA Eyes On The Solar System](https://eyes.nasa.gov/apps/solar-system)
+3D models of spacecraft from [NASA Eyes On The Solar System (EOTSS)](https://eyes.nasa.gov/apps/solar-system)
 
 View & download models using our simple model viewer on [Github Pages](https://matthewgiarra.github.io/spacecraft-models/).
 
@@ -37,4 +37,7 @@ python3 -m http.server 8000
 ```
 3. Navigate a browser to `localhost:8000`
 
-That's it, you should see the viewer in your browser. 
+That's it, you should see the viewer in your browser.
+
+### Making changes
+The model viewer (`viewer/index.html`) reads `viewer/models.json`, which contains the same information as `spacecraft.json` plus a little extra (like file paths). `viewer/models.json` is generated from `spacecraft.json` using the script `viewer/generate-models-json.py`. **Don't modify `viewer/models.json` by hand.** If you want to make changes (e.g., update the model descriptions), modify `spacecraft.json`, then update `viewer/models.json` by running `python viewer/generate-models-json.py`.
