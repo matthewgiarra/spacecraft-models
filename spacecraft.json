@@ -834,7 +834,7 @@
                 "GLTF": "https://eyes.nasa.gov/assets/static/models/sc_stardust/stardust_articulated.gltf"
             },
             {
-                "Name": "stardust-sapmle-return-capsule",
+                "Name": "stardust-sample-return-capsule",
                 "DisplayName": "Stardust Sample Return Capsule",
                 "FullName": "Stardust Sample Return Capsule",
                 "Description": "",

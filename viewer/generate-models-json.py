@@ -25,6 +25,9 @@ def main():
     outfile = args.outfile
 
     # Read the input file
+    if not os.path.isfile(infile):
+        print("File not found: %s" % infile)
+        return
     print("Reading %s" % infile)
     with open(infile, 'r') as f:
         data = json.load(f)
@@ -33,6 +36,21 @@ def main():
     models = [getModelInfo(x) for x in data['Spacecraft']]
     modelsDict = {'Models':models}
 
+    # Check if the output file exists
+    if os.path.isfile(outfile):
+        valid_input = False
+        while valid_input is False:
+            user_input = input("%s exists. Overwrite? (y/n): " % outfile).strip().lower()
+            if user_input in ['n', 'no']:
+                print ("Aborting")
+                return
+            elif user_input in ['y', 'yes']:
+                valid_input = True
+                continue
+            else:
+                print("Invalid input")
+                continue
+    
     # Write the output file
     print("Writing %s" % outfile)
     with open(outfile, 'w') as f:
