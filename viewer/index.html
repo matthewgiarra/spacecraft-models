@@ -6,8 +6,8 @@
   <title>NASA Spacecraft • 3D Explorer</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
   
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+<style>
+    @import url('https://googleapis.com');
     
     body {
       margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif;
@@ -40,6 +40,11 @@
       color: #444;
       white-space: nowrap;
       flex-shrink: 0;
+    }
+
+    /* Target the line break you will add to HTML */
+    .mobile-break {
+      display: none;
     }
 
     .current-model {
@@ -94,58 +99,58 @@
     }
 
     .info-btn {
-    background: #555;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    margin-right: 12px;
+      background: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-right: 12px;
     }
 
-  .info-btn:hover {
-    background: #333;
-  }
+    .info-btn:hover {
+      background: #333;
+    }
 
-  /* Info Panel */
-  .info-panel {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    padding: 24px;
-    width: 90%;
-    max-width: 620px;
-    max-height: 420px;        /* Fixed max height */
-    overflow-y: auto;         /* Enable scrolling */
-    display: none;            /* Start hidden */
-    z-index: 150;
-  }
+    /* Info Panel */
+    .info-panel {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      padding: 24px;
+      width: 90%;
+      max-width: 620px;
+      max-height: 420px;        /* Fixed max height */
+      overflow-y: auto;         /* Enable scrolling */
+      display: none;            /* Start hidden */
+      z-index: 150;
+    }
 
-  .info-panel.open {
-    display: block;
-  }
+    .info-panel.open {
+      display: block;
+    }
 
-  .info-panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-  }
+    .info-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
 
-  .close-btn {
-    background: none;
-    border: none;
-    font-size: 28px;
-    color: #999;
-    cursor: pointer;
-  }
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #999;
+      cursor: pointer;
+    }
 
     model-viewer {
       width: 100%;
@@ -189,24 +194,97 @@
       margin: 0 auto 16px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
+
+
+    /* ==========================================================================
+       MOBILE RESPONSIVE STYLES (Screens 768px wide and below)
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .header {
+        padding: 10px 12px; /* Tighten up general header padding */
+        gap: 8px;           /* Reduce gap between elements */
+      }
+
+      .hamburger {
+        font-size: 24px;    /* Slightly smaller touch target icon */
+        padding: 4px;
+      }
+
+      /* Enable the line break on mobile */
+      .mobile-break {
+        display: inline;
+      }
+
+      .menu-label {
+        font-size: 0.8rem;  /* Scaled down font */
+        line-height: 1.1;   /* Keeps the two lines close vertically */
+        text-align: center; /* Centers "Select" cleanly above "Model" */
+        white-space: normal;/* Allows the wrap to take place */
+      }
+
+      .current-model {
+        font-size: 0.95rem; /* Scale down the big center title */
+        padding: 0 4px;     /* Ensure it doesn't slam against text */
+      }
+
+      /* Hide button label text on mobile devices */
+      .info-btn .btn-text,
+      .download-btn .btn-text {
+        display: none;
+      }
+
+      /* Format both actions into clean, square icon buttons on mobile */
+      .info-btn, .download-btn {
+        padding: 8px 12px;  /* Compact mobile padding */
+        font-size: 1.05rem; /* Slightly boost icon sizing for visibility */
+        border-radius: 6px; /* Balance the border radius for mobile sizing */
+        margin-right: 0px;  /* Strip default desktop margins */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Adjust floating drop down menu to look right on narrow phone screens */
+      .model-menu {
+        left: 12px;
+        right: 12px;
+        top: 65px;
+        min-width: calc(100vw - 24px); 
+        max-width: none;
+      }
+
+      .model-item {
+        padding: 14px 20px; /* Make list elements slightly less tall on mobile */
+      }
+      
+      model-viewer {
+        height: calc(100vh - 60px); /* Adjust canvas viewport height to match smaller header */
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="header">
     <button class="hamburger" id="hamburger">☰</button>
-    <span class="menu-label">Select Model</span>
+    
+    <!-- Added the line break tag for mobile splitting -->
+    <span class="menu-label">Select<br class="mobile-break"> Model</span>
+    
     <div class="current-model" id="current-model">—</div>
     
-    <button id="info-btn" class="info-btn">Spacecraft Info</button>
+    <!-- Added ⓘ and wrapped the text in a span tag to hide it on mobile -->
+    <button id="info-btn" class="info-btn">ⓘ <span class="btn-text">Spacecraft Info</span></button>
     
-    <button id="download-btn" class="download-btn">↓ Download Model</button>
+    <!-- Wrapped the download text in a span tag to hide it on mobile -->
+    <button id="download-btn" class="download-btn">↓ <span class="btn-text">Download Model</span></button>
   </div>
 
-  <!-- Floating Menu -->
+  <!-- Floating Menu (Stays exactly the same) -->
   <div class="model-menu" id="model-menu">
     <div id="model-list"></div>
   </div>
+
 
   <model-viewer id="viewer"
     camera-controls
